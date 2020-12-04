@@ -1,11 +1,10 @@
 import React from 'react';
+import AppHeader from './AppHeader';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      Gifhub init
+    <div>
+      <AppHeader></AppHeader>
     </div>
   );
 }
-
-export default App;
