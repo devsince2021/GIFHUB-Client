@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import SearchBar from '../SearchBar';
-import FileUploadModal from './fileUploadModal';
-import { Wrapper, LogoContainer, WackyContainer } from './styled';
-import { UploadIconButton, AccountIconButton } from '../Button/styled';
+import { Wrapper, Logo, SearchBar } from './styled';
+import { HeaderSearchInput } from '../Input';
+import {SearchIconButton, CreateIconButton } from '../Button';
+import FileUploadModal from '../Modal/FileUploadModal';
 
 export default function AppHeader() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -13,19 +13,16 @@ export default function AppHeader() {
 
   return (
     <Wrapper>
-      <LogoContainer />
-      <WackyContainer />
-      <section>
-        <SearchBar />
-        <UploadIconButton />
-        <UploadIconButton onClick={toggleModal}>create</UploadIconButton>
-        <AccountIconButton />
-      </section>
-      {
-        isModalOpen &&
-        <FileUploadModal toggleModal={toggleModal} isModalOpen={isModalOpen} />
-      }
+      <CreateIconButton onClick={toggleModal} />
+        {
+          isModalOpen &&
+          <FileUploadModal isOpen={isModalOpen} toggleModal={toggleModal} />
+        }
+      <Logo />
+      <SearchBar>
+        <HeaderSearchInput />
+        <SearchIconButton />
+      </SearchBar>
     </Wrapper>
-
   );
 };

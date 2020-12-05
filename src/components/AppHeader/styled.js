@@ -1,42 +1,32 @@
 import styled from 'styled-components';
 import { background, logo } from '../../constants/image';
 
-export const Wrapper = styled.div`
-  position: fixed;
-  background-image: url(${background.appHeader});
-  background-size: cover;
-  padding: 1em 0;
+export const StyledDiv = styled.div`
+  background-size: contain;
+  background-repeat: repeat;
   width: 100%;
-  height: 10em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  section {
-    margin-left: 17.5em;
-    width: 80em;
-    display: grid;
-    grid-template-columns: 5fr 1fr 1fr 1fr;
-    grid-gap: 1em;
-  }
 `;
 
-export const LogoContainer = styled.div`
+export const Wrapper = styled(StyledDiv)`
+  background-image: url(${background.appHeader});
+  position: fixed;
+  height: 18%;
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  grid-template-rows: repeat(3,1fr);
+`;
+
+export const Logo = styled(StyledDiv)`
   background-image: url(${logo.main});
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 40em;
-  height: 100em;
-  margin-bottom: 0.5em;
+  margin-top: 3px;
+  grid-column: 2/6;
+  grid-row: 1/3;
 `;
 
-export const WackyContainer = styled.div`
-  position: absolute;
-  background-image: url(${logo.wacky});
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 25em;
-  height: 25em;
-  left: -5em;
-  bottom: -9em;
+export const SearchBar = styled.div`
+  margin-bottom: 10px;
+  grid-column: 2/6;
+  grid-row: 3/4;
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
 `;
