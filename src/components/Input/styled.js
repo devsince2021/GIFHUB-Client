@@ -14,6 +14,6 @@ export const StyledHeaderSearchInput = styled(StyledInput)`
   grid-column: 1/7;
 `;
 
-export const StyledFileUploadInput = styled(StyledInput)`
+export const StyledFileSelectInput = styled(StyledInput)`
   display: none;
 `;

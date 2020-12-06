@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { logo } from '../../constants/image'
 
 export const Overlay = styled.div`
   position: fixed;
@@ -8,7 +7,7 @@ export const Overlay = styled.div`
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 9998;
+  z-index: 9997;
 `;
 
 export const ModalContainer = styled.div`
@@ -20,7 +19,7 @@ export const ModalContainer = styled.div`
   position: absolute;
   top: 22%;
   left: 10%;
-  z-index: 9999;
+  z-index: 9998;
 `;
 
 export const ModalPage = styled.div`
@@ -36,7 +35,7 @@ export const ModalPage = styled.div`
   display: grid;
   grid-template-columns: repeat(12,1fr);
   grid-template-rows: repeat(12,1fr);
-  z-index: 1000;
+  z-index: 9999;
 `;
 
 export const CloseButton = styled.button`
@@ -56,18 +55,7 @@ export const Title = styled.div`
   text-align: center;
   align-self: center;
   margin-left: 1%;
-  font-size: ${({ theme }) => theme.fontSize.large};
+  font-size: ${({ theme }) => theme.fontSize.LARGE};
   grid-column: 1/13;
   grid-row: 2/4;
-`;
-
-export const WackyTubeMan = styled.div`
-  background-image: url(${logo.wacky});
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: absolute;
-  top: -10%;
-  left: ${props => props.direction === 'left' ? '-12%' : '25%'};
-  width: 100%;
-  height: 50%;
 `;

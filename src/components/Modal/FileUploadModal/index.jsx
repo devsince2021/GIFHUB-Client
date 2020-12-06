@@ -1,31 +1,36 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import Modal from '..';
-import { FileUploadInput } from '../../Input';
-import { FileUploadContainer, Description, Notification } from './styled';
+import { Description, Notification, WackyTubeMan } from './styled';
+import FileUploader from '../../FileUploader';
+import { TITLE, DESCRIPTION, NOTIFICATION } from '../../../constants/modal';
 
 export default function FileUploadModal({ isOpen, toggleModal }) {
-  const hiddenFileInput = useRef(null);
-  const title = 'FILE UPLOAD';
 
-  function clickHandler() {
-    hiddenFileInput.current.click();
+  function decorateModal() {
+    return (
+      <>
+        <WackyTubeMan direction='left'/>
+        <WackyTubeMan />
+      </>
+    );
   }
 
   return (
-    <Modal
-      isOpen={isOpen}
-      closeModal={toggleModal}
-      title={title}
-    >
-      <Description>
-        Upload your GIFs and Videos to share on Facebook, Kakao Talk, Instagram and everywhere else.
-      </Description>
-      <FileUploadContainer onClick={clickHandler}>
-        <FileUploadInput ref={hiddenFileInput} type='file' name='file' />
-      </FileUploadContainer>
-      <Notification>
-        Supported Formats: MOV, MP4, GIF
-      </Notification>
-    </Modal>
+    <>
+      <Modal
+        isOpen={isOpen}
+        closeModal={toggleModal}
+        title={TITLE}
+        decoration={decorateModal()}
+      >
+        <Description>
+          {DESCRIPTION}
+        </Description>
+        <FileUploader />
+        <Notification>
+          {NOTIFICATION}
+        </Notification>
+      </Modal>
+    </>
   );
 }

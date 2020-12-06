@@ -1,15 +1,15 @@
 export const logo = {
-  main: `${process.env.PUBLIC_URL + '/image/logo.png'}`,
-  wacky: `${process.env.PUBLIC_URL + '/image/wacky_tubeman.gif'}`,
+  MAIN: `${process.env.PUBLIC_URL + '/image/logo.png'}`,
+  WACKY_TUBE_MAN: `${process.env.PUBLIC_URL + '/image/wacky_tubeman.gif'}`,
 };
 
 export const background = {
-  appHeader: `${process.env.PUBLIC_URL + '/image/appheader_bg.png'}`,
+  APP_HEADER: `${process.env.PUBLIC_URL + '/image/app_header_bg.png'}`,
 };
 
 export const icon = {
-  account: `${process.env.PUBLIC_URL + '/image/account_icon.png'}`,
-  search: `${process.env.PUBLIC_URL + '/image/search_icon.png'}`,
-  create: `${process.env.PUBLIC_URL + '/image/create_icon.png'}`,
-  fileUploadInput: `${process.env.PUBLIC_URL + '/image/file_upload_icon.png'}`,
+  SEARCH: `${process.env.PUBLIC_URL + '/image/search_icon.png'}`,
+  CREATE: `${process.env.PUBLIC_URL + '/image/create_icon.png'}`,
+  FILE_SELECT_INPUT: `${process.env.PUBLIC_URL + '/image/file_select_icon.png'}`,
+  FILE_SUBMIT_INTPUT: `${process.env.PUBLIC_URL + '/image/file_submit_icon.png'}`,
 };

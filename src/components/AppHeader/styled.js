@@ -8,7 +8,7 @@ export const StyledDiv = styled.div`
 `;
 
 export const Wrapper = styled(StyledDiv)`
-  background-image: url(${background.appHeader});
+  background-image: url(${background.APP_HEADER});
   position: fixed;
   height: 18%;
   display: grid;
@@ -17,7 +17,8 @@ export const Wrapper = styled(StyledDiv)`
 `;
 
 export const Logo = styled(StyledDiv)`
-  background-image: url(${logo.main});
+  background-image: url(${logo.MAIN});
+  background-repeat: no-repeat;
   margin-top: 3px;
   grid-column: 2/6;
   grid-row: 1/3;

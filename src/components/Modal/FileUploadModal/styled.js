@@ -1,37 +1,36 @@
 import styled from 'styled-components';
-import { icon } from '../../../constants/image';
+import { logo } from '../../../constants/image';
 
 export const Description = styled.div`
   color: ${({ theme }) => theme.palette.WHITE};
   text-align: center;
   align-self: center;
   font-weight: 100;
-  font-size: ${({ theme }) => theme.fontSize.small};
+  font-size: ${({ theme }) => theme.fontSize.SMALL};
   margin: 0 5%;
   grid-column: 1/13;
   grid-row: 4/6;
 `;
 
-export const FileUploadContainer = styled.div`
-  background-color: ${({theme}) => theme.palette.WHITE};
-  background-image: url(${icon.fileUploadInput});
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 70%;
-  border-radius: 3px;
-  grid-column: 4/10;
-  grid-row: 7/9;
-
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-`;
-
 export const Notification = styled.div`
   color: ${({ theme }) => theme.palette.WHITE};
-  font-size: ${({ theme }) => theme.fontSize.small};
+  font-size: ${({ theme }) => theme.fontSize.SMALL};
   align-self: center;
   text-align: center;
 
   grid-column: 1/13;
   grid-row: 9/11;
 `;
+
+export const WackyTubeMan = styled.div`
+  background-image: url(${logo.WACKY_TUBE_MAN});
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -10%;
+  left: ${props => props.direction === 'left' ? '-5%' : '30%'};
+  width: 100%;
+  height: 50%;
+  z-index: 9999;
+`;
+
