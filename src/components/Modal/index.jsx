@@ -12,7 +12,7 @@ import {
 export default function Modal({
   isOpen,
   children,
-  closeModal,
+  onCloseModal,
   title,
   decoration,
 }) {
@@ -29,12 +29,12 @@ export default function Modal({
 
   return createPortal(
     <>
-      <Overlay onClick={closeModal}>
+      <Overlay onClick={onCloseModal}>
         {decoration && decorateModal()}
       </Overlay>
       <ModalContainer>
         <ModalPage>
-          <CloseButton onClick={closeModal}>+</CloseButton>
+          <CloseButton onClick={onCloseModal}>+</CloseButton>
           <Title>
             {title}
           </Title>

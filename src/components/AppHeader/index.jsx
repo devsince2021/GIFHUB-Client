@@ -21,7 +21,7 @@ export default function AppHeader() {
           isModalOpen && //step1
           <Modal
             isOpen={isModalOpen}
-            toggleModal={toggleModal}
+            onCloseModal={toggleModal}
             title={TITLE}
             decoration
           >
