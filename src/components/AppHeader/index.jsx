@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { Wrapper, Logo, SearchBar } from './styled';
 import { HeaderSearchInput } from '../Input';
 import {SearchIconButton, CreateIconButton } from '../Button';
-import FileUploadModal from '../Modal/FileUploadModal';
+import Modal from '../Modal';
+import { FileUploadContent } from '../ModalContent';
+
+import { TITLE } from '../../constants/modal';
 
 export default function AppHeader() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,8 +18,15 @@ export default function AppHeader() {
     <Wrapper>
       <CreateIconButton onClick={toggleModal} />
         {
-          isModalOpen &&
-          <FileUploadModal isOpen={isModalOpen} toggleModal={toggleModal} />
+          isModalOpen && //step1
+          <Modal
+            isOpen={isModalOpen}
+            toggleModal={toggleModal}
+            title={TITLE}
+            decoration
+          >
+            <FileUploadContent />
+          </Modal>
         }
       <Logo />
       <SearchBar>

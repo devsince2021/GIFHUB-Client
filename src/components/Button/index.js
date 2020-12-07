@@ -1,4 +1,4 @@
-import decorateStyledComponent from '../../util/decorateStyledComponent';
+import { decorateStyledComponent } from '../../util';
 import {
   StyledSearchIconButton,
   StyledCreateIconButton,

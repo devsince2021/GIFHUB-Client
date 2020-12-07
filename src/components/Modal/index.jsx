@@ -6,6 +6,7 @@ import {
   CloseButton,
   Title,
   ModalPage,
+  WackyTubeMan,
 } from './styled';
 
 export default function Modal({
@@ -16,10 +17,20 @@ export default function Modal({
   decoration,
 }) {
   if (!isOpen) return null;
+
+  function decorateModal() {
+    return (
+      <>
+        <WackyTubeMan direction='left'/>
+        <WackyTubeMan />
+      </>
+    );
+  }
+
   return createPortal(
     <>
       <Overlay onClick={closeModal}>
-        {decoration}
+        {decoration && decorateModal()}
       </Overlay>
       <ModalContainer>
         <ModalPage>

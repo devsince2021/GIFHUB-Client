@@ -1,11 +1,9 @@
 import React, { useRef, useState } from 'react';
 import axios from 'axios';
 import { FileSelectInput } from '../Input';
-import { FileUploadIconButton } from '../Button'
+import { FileUploadIconButton } from '../Button';
 import { FileUploadForm, FileSelectIcon, SelectedFileName } from './styled'
-import handleSelectedFileName from '../../util/handleSelectedFileName';
-import validateFileSize from '../../util/validateFileSize';
-
+import { handleSelectedFileName, validateFileSize } from '../../util';
 
 export default function FileUploader() {
   const [file, setFile] = useState(null);
@@ -42,17 +40,17 @@ export default function FileUploader() {
   }
 
 return (
-    <FileUploadForm onSubmit={submitHandler}>
-      <FileSelectInput
-        ref={fileSelectInput}
-        type='file'
-        name='mediaFile'
-        accept='.mov, .mp4, .gif'
-        onChange={changeHandler}
-      />
-      <FileSelectIcon onClick={clickHandler} />
-      {handleSelectedFileName(SelectedFileName, description)}
-      <FileUploadIconButton disabled={!file}/>
-    </FileUploadForm>
-  )
+  <FileUploadForm onSubmit={submitHandler}>
+    <FileSelectInput
+      ref={fileSelectInput}
+      type='file'
+      name='mediaFile'
+      accept='.mov, .mp4, .gif'
+      onChange={changeHandler}
+    />
+    <FileSelectIcon onClick={clickHandler} />
+    {handleSelectedFileName(SelectedFileName, description)}
+    <FileUploadIconButton disabled={!file}/>
+  </FileUploadForm>
+  );
 };

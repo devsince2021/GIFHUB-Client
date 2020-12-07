@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { logo } from '../../constants/image';
 
 export const Overlay = styled.div`
   position: fixed;
@@ -58,4 +59,17 @@ export const Title = styled.div`
   font-size: ${({ theme }) => theme.fontSize.LARGE};
   grid-column: 1/13;
   grid-row: 2/4;
+`;
+
+
+export const WackyTubeMan = styled.div`
+  background-image: url(${logo.WACKY_TUBE_MAN});
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -10%;
+  left: ${props => props.direction === 'left' ? '-5%' : '30%'};
+  width: 100%;
+  height: 50%;
+  z-index: 9999;
 `;
