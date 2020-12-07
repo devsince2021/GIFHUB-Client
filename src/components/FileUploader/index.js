@@ -1,8 +1,11 @@
 import React, { useRef, useState } from 'react';
+import axios from 'axios';
 import { FileSelectInput } from '../Input';
 import { FileUploadIconButton } from '../Button'
 import { FileUploadForm, FileSelectIcon, SelectedFileName } from './styled'
 import handleSelectedFileName from '../../util/handleSelectedFileName';
+import validateFileSize from '../../util/validateFileSize';
+
 
 export default function FileUploader() {
   const [file, setFile] = useState(null);
@@ -18,24 +21,23 @@ export default function FileUploader() {
 
   function changeHandler(event) {
     const file = event.target.files[0];
-    setFile(file);
+    const isValidSize = validateFileSize(file);
+    if (isValidSize) setFile(file);
   }
 
-  function submitHandler(event) {
+  async function submitHandler(event) {
     event.preventDefault();
 
     const mediaFile = new FormData();
     mediaFile.append('mediaFile', file );
-
-    sendUserFile();
+    await sendUserFile();
     setFile(null);
 
     async function sendUserFile() {
-      const response =  await fetch('http://www.localhost:4000/mediaFile', {
-        method: 'POST',
-        enctype: 'multipart/form-data',
-        body: mediaFile
-      });
+      let response = await axios.post(
+        'http://www.localhost:4000/mediaFile',
+        mediaFile
+      );
     }
   }
 
