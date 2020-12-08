@@ -7,10 +7,11 @@ import { FileUploadContent } from '../ModalContent';
 
 import { TITLE } from '../../constants/modal';
 
-export default function AppHeader({onMediaFileSubmit}) {
+export default function AppHeader({uploadFile, uploadedFile}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   function toggleModal() {
+    
     setIsModalOpen(!isModalOpen);
   }
 
@@ -25,7 +26,7 @@ export default function AppHeader({onMediaFileSubmit}) {
             title={TITLE}
             decoration
           >
-            <FileUploadContent onMediaFileSubmit={onMediaFileSubmit}/>
+            <FileUploadContent onMediaFileSubmit={uploadFile}/>
           </Modal>
         }
       <Logo />

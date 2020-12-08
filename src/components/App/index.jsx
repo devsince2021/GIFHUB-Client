@@ -1,14 +1,11 @@
 import React from 'react';
-import AppHeader from '../AppHeader';
+import AppHeaderComponent from '../../containers/AppHeaderContainer';
 
-export default function App({ file, saveFile }) {
+export default function App() {
 
-  console.log(file, 'saved state')
-  // console.log(saveFile('test'), 'app container');
-  // console.log(saveFile('test'), 'app container');
   return (
     <>
-      <AppHeader onMediaFileSubmit={saveFile}></AppHeader>
+      <AppHeaderComponent></AppHeaderComponent>
     </>
   );
 };

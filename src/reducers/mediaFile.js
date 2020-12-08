@@ -1,14 +1,19 @@
 import { combineReducers } from 'redux';
+import { UPLOAD_MEDIA_FILE, UPLOAD_MEDIA_FILE_SUCCESS, UPLOAD_MEDIA_FILE_ERROR} from '../constants/actionTypes';
 
-function selectedMediaFile(state = null, action) {
+function uploaded(state = null, action) {
   switch (action.type) {
-    case 'save_file':
+    case UPLOAD_MEDIA_FILE:
+      return 'start';
+    case UPLOAD_MEDIA_FILE_SUCCESS:
       return action.payload;
+    case UPLOAD_MEDIA_FILE_ERROR:
+      return 'error';
     default:
-    return state;
+      return state;
   }
 };
 
 export default combineReducers({
-  selectedMediaFile,
+  uploaded,
 });

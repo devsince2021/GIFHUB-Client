@@ -28,7 +28,7 @@ export default function FileUploader({onMediaFileSubmit}) {
 
     const mediaFile = new FormData();
     mediaFile.append('mediaFile', file );
-    
+
     onMediaFileSubmit(mediaFile);
     setFile(null);
   }
