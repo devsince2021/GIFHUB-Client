@@ -3,13 +3,13 @@ import FileUploader from '../../FileUploader';
 import { Description, Notification } from './styled';
 import { DESCRIPTION, NOTIFICATION } from '../../../constants/modal';
 
-export default function FileUploadContent() {
+export default function FileUploadContent({onMediaFileSubmit}) {
 return (
   <>
     <Description>
       {DESCRIPTION}
     </Description>
-    <FileUploader />
+    <FileUploader onMediaFileSubmit={onMediaFileSubmit} />
     <Notification>
       {NOTIFICATION}
     </Notification>

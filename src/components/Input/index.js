@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import {decorateStyledComponent} from '../../util';
+import {decorateStyledComponent} from '../../utils';
 import { StyledHeaderSearchInput, StyledFileSelectInput } from './styled'
 
 export function HeaderSearchInput(props) {

@@ -3,9 +3,9 @@ import axios from 'axios';
 import { FileSelectInput } from '../Input';
 import { FileUploadIconButton } from '../Button';
 import { FileUploadForm, FileSelectIcon, SelectedFileName } from './styled'
-import { handleSelectedFileName, validateFileSize } from '../../util';
+import { handleSelectedFileName, validateFileSize } from '../../utils';
 
-export default function FileUploader() {
+export default function FileUploader({onMediaFileSubmit}) {
   const [file, setFile] = useState(null);
   const fileSelectInput = useRef(null);
 
@@ -28,15 +28,9 @@ export default function FileUploader() {
 
     const mediaFile = new FormData();
     mediaFile.append('mediaFile', file );
-    await sendUserFile();
+    
+    onMediaFileSubmit(mediaFile);
     setFile(null);
-
-    async function sendUserFile() {
-      let response = await axios.post(
-        'http://www.localhost:4000/mediaFile',
-        mediaFile
-      );
-    }
   }
 
 return (
