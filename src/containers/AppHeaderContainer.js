@@ -5,13 +5,19 @@ import { actionMediaFile } from '../action';
 function mapStateToProps(state) {
   return {
     uploadedFile: state.mediaFile.uploaded,
+    selectedFile: state.mediaFile.selected,
   }
 }
 
 function mapDispathToProps(dispatch) {
   return {
-    uploadFile: function(mediaFile) {
-      return dispatch(actionMediaFile.upload(mediaFile));
+    onSaveUploadedFile: function(mediaFile) {
+      dispatch(actionMediaFile.saveUploadedFile(mediaFile));
+      dispatch(actionMediaFile.deleteSelectedFile());
+      return;
+    },
+    onSaveSeletedFile: function(mediaFile) {
+      return dispatch(actionMediaFile.saveSelectedFile(mediaFile));
     }
   };
 }
