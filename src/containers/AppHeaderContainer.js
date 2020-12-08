@@ -1,12 +1,19 @@
 import { connect } from 'react-redux';
 import AppHeader from '../components/AppHeader';
-import { actionMediaFile, actionModal } from '../action';
+import {
+  actionMediaFile,
+  actionModal,
+  nextEditingStep,
+  previousEditingStep
+} from '../action';
 
 function mapStateToProps(state) {
   return {
-    uploadedFile: state.mediaFile.uploaded,
+    uploadedFile: state.mediaFile.uploaded.data,
     selectedFile: state.mediaFile.selected,
     isMediaFileModalOpen: state.modal.isMediaFileModalOpen,
+    currentEditingStep: state.changeEditingStep,
+    isLoading: state.mediaFile.uploaded.loading,
   }
 }
 
@@ -23,6 +30,11 @@ function mapDispathToProps(dispatch) {
     },
     onToggleMediaFileModal: function() {
       return dispatch(actionModal.toggleMediaFileModal());
+    },
+    onChangeEdtingStep: function(direction) {
+      return direction === 'next'
+        ? dispatch(nextEditingStep())
+        : dispatch(previousEditingStep());
     }
   };
 }

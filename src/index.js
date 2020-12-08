@@ -1,3 +1,4 @@
+import dotenv from 'dotenv';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -11,6 +12,7 @@ import { theme } from './shared/theme'
 import AppContainer from './containers/AppContainer';
 
 import AppReducer from './reducers';
+dotenv.config();
 
 const store = createStore(AppReducer, applyMiddleware(ReduxThunk, logger));
 

@@ -1,5 +1,5 @@
-export const root = 'http://www.localhost:4000'
+export const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
-export const mediaFile = {
-  root: '/mediaFile'
+export const mediaFileRoute = {
+  ROOT: '/mediaFile'
 }

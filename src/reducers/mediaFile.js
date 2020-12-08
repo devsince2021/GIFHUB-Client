@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducerUtils } from '../utils';
 import {
   SAVE_UPLOADED_FILE,
   SAVE_UPLOADED_FILE_SUCCESS,
@@ -7,12 +8,14 @@ import {
   DELETE_SELECTED_FILE,
 } from '../constants/actionTypes';
 
-function uploaded(state = null, action) {
+const initialState = reducerUtils.initial();
+
+function uploaded(state = initialState, action) {
   switch (action.type) {
     case SAVE_UPLOADED_FILE:
-      return 'start';
+      return reducerUtils.loading();
     case SAVE_UPLOADED_FILE_SUCCESS:
-      return action.payload;
+      return reducerUtils.success(action.payload);
     case SAVE_UPLOADED_FILE_ERROR:
       return 'error';
     default:

@@ -8,6 +8,7 @@ export default function FileUploadContent({
   onSaveUploadedFile,
   onSaveSeletedFile,
   onDeleteSelectedFile,
+  onChangeEdtingStep,
   selectedFile,
 }) {
 
@@ -21,11 +22,15 @@ export default function FileUploadContent({
     ? selectedFile.name.toLowerCase()
     : 'Select your files..';
 
-  function createFormDataAndSaveUploadedFile() {
+  async function createFormDataAndSaveUploadedFile() {
     const mediaFile = new FormData();
     mediaFile.append('mediaFile', selectedFile);
-    onSaveUploadedFile(mediaFile);
+    await onSaveUploadedFile(mediaFile);
     onDeleteSelectedFile();
+    onChangeEdtingStep('next');
+    if (selectedFile.type.includes('image')) {
+      onChangeEdtingStep('next');
+    }
   }
 
 return (
