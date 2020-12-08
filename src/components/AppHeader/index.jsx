@@ -1,36 +1,42 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Wrapper, Logo, SearchBar } from './styled';
 import { HeaderSearchInput } from '../Input';
 import {SearchIconButton, CreateIconButton } from '../Button';
 import Modal from '../Modal';
 import { FileUploadContent } from '../ModalContent';
-
-import { TITLE } from '../../constants/modal';
+import { TITLE, DO_YOU_WANT_LEAVE } from '../../constants/modal';
 
 export default function AppHeader({
+  onToggleMediaFileModal,
   onSaveUploadedFile,
+  onDeleteSelectedFile,
   onSaveSeletedFile,
   selectedFile,
-}) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  isMediaFileModalOpen,
 
+}) {
   function toggleModal() {
-    setIsModalOpen(!isModalOpen);
+    if (selectedFile) {
+      if (!window.confirm(DO_YOU_WANT_LEAVE)) return;
+      onDeleteSelectedFile();
+    }
+    onToggleMediaFileModal();
   }
 
   return (
     <Wrapper>
       <CreateIconButton onClick={toggleModal} />
         {
-          isModalOpen && //step1
+          isMediaFileModalOpen && //step1
           <Modal
-            isOpen={isModalOpen}
+            isOpen={isMediaFileModalOpen}
             onCloseModal={toggleModal}
             title={TITLE}
             decoration
           >
             <FileUploadContent
               onSaveUploadedFile={onSaveUploadedFile}
+              onDeleteSelectedFile={onDeleteSelectedFile}
               onSaveSeletedFile={onSaveSeletedFile}
               selectedFile={selectedFile}
             />

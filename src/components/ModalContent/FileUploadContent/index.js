@@ -7,10 +7,12 @@ import { validateFileSize } from '../../../utils';
 export default function FileUploadContent({
   onSaveUploadedFile,
   onSaveSeletedFile,
+  onDeleteSelectedFile,
   selectedFile,
 }) {
 
   function validateAndSaveSelectedFile(file) {
+    if (!file) return;
     const isValidSize = validateFileSize(file);
     if (isValidSize) onSaveSeletedFile(file);
   }
@@ -23,6 +25,7 @@ export default function FileUploadContent({
     const mediaFile = new FormData();
     mediaFile.append('mediaFile', selectedFile);
     onSaveUploadedFile(mediaFile);
+    onDeleteSelectedFile();
   }
 
 return (
