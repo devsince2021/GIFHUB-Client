@@ -3,10 +3,14 @@ import { SERVER_URL, mediaFileRoute } from '../constants/http';
 
 export async function uploadMediaFile(mediaFile) {
   try {
+    const config = {
+      header: { 'content-type': 'multipart/form-data'}
+    }
+
     const response = await axios.post(
       `${SERVER_URL}${mediaFileRoute.ROOT}`,
-      // 'http://www.localhost:4000/mediaFile'
-      mediaFile
+      mediaFile,
+      config,
     );
     return response.data;
   } catch (err) {

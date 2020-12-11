@@ -18,5 +18,5 @@ export const Notification = styled.div`
   text-align: center;
 
   grid-column: 1/13;
-  grid-row: 9/11;
+  grid-row: 12/13;
 `;

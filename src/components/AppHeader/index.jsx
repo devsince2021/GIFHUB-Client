@@ -3,7 +3,7 @@ import { Wrapper, Logo, SearchBar } from './styled';
 import { HeaderSearchInput } from '../Input';
 import {SearchIconButton, CreateIconButton } from '../Button';
 import Modal from '../Modal';
-import { FileUploadContent, LoadingContent } from '../ModalContent';
+import { FileUploadContent, LoadingContent, FileTrimContent } from '../ModalContent';
 import { title, DO_YOU_WANT_LEAVE } from '../../constants/modal';
 
 export default function AppHeader({
@@ -18,7 +18,6 @@ export default function AppHeader({
   currentEditingStep,
   isLoading,
 }) {
-  console.log(currentEditingStep, 'c')
   function toggleModal() {
     if (selectedFile) {
       if (!window.confirm(DO_YOU_WANT_LEAVE)) return;
@@ -57,6 +56,12 @@ export default function AppHeader({
                 onSaveSeletedFile={onSaveSeletedFile}
                 onChangeEdtingStep={onChangeEdtingStep}
                 selectedFile={selectedFile}
+              />
+            }
+            {
+              uploadedFile && !isLoading &&
+              <FileTrimContent
+                uploadedFile={uploadedFile}
               />
             }
           </Modal>

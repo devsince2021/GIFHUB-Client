@@ -13,6 +13,7 @@ export default function FileUploadContent({
 }) {
 
   function validateAndSaveSelectedFile(file) {
+    console.log(file, 'input')
     if (!file) return;
     const isValidSize = validateFileSize(file);
     if (isValidSize) onSaveSeletedFile(file);
@@ -25,6 +26,7 @@ export default function FileUploadContent({
   async function createFormDataAndSaveUploadedFile() {
     const mediaFile = new FormData();
     mediaFile.append('mediaFile', selectedFile);
+
     await onSaveUploadedFile(mediaFile);
     onDeleteSelectedFile();
     onChangeEdtingStep('next');
