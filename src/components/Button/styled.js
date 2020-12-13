@@ -15,7 +15,8 @@ export const StyledButton = styled.button`
 
 export const StyledSearchIconButton = styled(StyledButton)`
   background-color: ${({theme}) => theme.palette.YELLOW};
-  border-radius: 0 2px 2px 0;
+  background-image: url(${icon.SEARCH});
+  border-radius: 0 3px 3px 0;
 `;
 
 export const StyledCreateIconButton = styled(StyledButton)`
@@ -36,7 +37,7 @@ export const StyledFileUploadIconButton = styled(StyledButton)`
   background-image: url(${icon.FILE_SUBMIT_INTPUT});
   background-size: contain;
   background-repeat: no-repeat;
-  margin: 15px 4px 0 0;
+  margin: 15px 5px 5px 5px;
   grid-column: 6/7;
 
   ${props =>

@@ -16,7 +16,7 @@ export const Notification = styled.div`
   font-size: ${({ theme }) => theme.fontSize.SMALL};
   align-self: center;
   text-align: center;
-
+  padding-right: 10px;
   grid-column: 1/13;
-  grid-row: 12/13;
+  grid-row: 10/11;
 `;

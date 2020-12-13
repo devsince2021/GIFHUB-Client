@@ -12,26 +12,26 @@ export const Overlay = styled.div`
 `;
 
 export const ModalContainer = styled.div`
-  width: 80%;
+  width: 50%;
   height: 60%;
   background-color: ${({ theme }) => theme.palette.WHITE};
-  border-radius: 3%;
+  border-radius: 6px;
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.6);
   position: absolute;
   top: 22%;
-  left: 10%;
+  left: 25%;
   z-index: 9998;
 `;
 
 export const ModalPage = styled.div`
-  width: 98%;
+  width: 99%;
   height: 98%;
   background-color: ${({ theme }) => theme.palette.BLACK};
-  border-radius: 3%;
+  border-radius: 6px;
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.6);
   position: absolute;
   top: 1%;
-  left: 1%;
+  left: 0.5%;
 
   display: grid;
   grid-template-columns: repeat(12,1fr);
@@ -39,36 +39,13 @@ export const ModalPage = styled.div`
   z-index: 9999;
 `;
 
-export const CloseButton = styled.button`
-  color: ${({theme}) => theme.palette.WHITE};
-  background-color: transparent;
-  border: none;
-  border-radius: 3px;
-  outline: none;
-  cursor: pointer;
-  font-size: 1.1rem;
-  transform: rotate(45deg);
-  grid-column: 12/13;
-`;
-
-export const Title = styled.div`
-  color: ${({ theme }) => theme.palette.WHITE};
-  text-align: center;
-  align-self: center;
-  margin-left: 1%;
-  font-size: ${({ theme }) => theme.fontSize.LARGE};
-  grid-column: 1/13;
-  grid-row: 2/4;
-`;
-
-
 export const WackyTubeMan = styled.div`
   background-image: url(${logo.WACKY_TUBE_MAN});
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
   top: -10%;
-  left: ${props => props.direction === 'left' ? '-5%' : '30%'};
+  left: ${props => props.direction === 'left' ? '22%' : '46%'};
   width: 100%;
   height: 50%;
   z-index: 9999;

@@ -8,12 +8,10 @@ export default function FileUploadContent({
   onSaveUploadedFile,
   onSaveSeletedFile,
   onDeleteSelectedFile,
-  onChangeEdtingStep,
   selectedFile,
 }) {
 
   function validateAndSaveSelectedFile(file) {
-    console.log(file, 'input')
     if (!file) return;
     const isValidSize = validateFileSize(file);
     if (isValidSize) onSaveSeletedFile(file);
@@ -27,12 +25,8 @@ export default function FileUploadContent({
     const mediaFile = new FormData();
     mediaFile.append('mediaFile', selectedFile);
 
-    await onSaveUploadedFile(mediaFile);
+    onSaveUploadedFile(mediaFile);
     onDeleteSelectedFile();
-    onChangeEdtingStep('next');
-    if (selectedFile.type.includes('image')) {
-      onChangeEdtingStep('next');
-    }
   }
 
 return (

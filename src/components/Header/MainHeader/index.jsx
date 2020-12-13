@@ -1,23 +1,25 @@
 import React from 'react';
-import { Wrapper, Logo, SearchBar } from './styled';
-import { HeaderSearchInput } from '../Input';
-import {SearchIconButton, CreateIconButton } from '../Button';
-import Modal from '../Modal';
-import { FileUploadContent, LoadingContent, FileTrimContent } from '../ModalContent';
-import { title, DO_YOU_WANT_LEAVE } from '../../constants/modal';
+import { useHistory } from 'react-router-dom';
+import  Header  from '..';
+import { Logo, SearchBar } from './styled';
+import { HeaderSearchInput } from '../../Input';
+import {SearchIconButton, CreateIconButton } from '../../Button';
+import FileUploadModal from '../../Modal/FileUploadModal';
+import { FileUploadContent, LoadingContent } from '../../ModalContent';
+import { title, DO_YOU_WANT_LEAVE } from '../../../constants/modal';
 
-export default function AppHeader({
+export default function MainHeader({
   onToggleMediaFileModal,
   onSaveUploadedFile,
   onDeleteSelectedFile,
   onSaveSeletedFile,
-  onChangeEdtingStep,
   selectedFile,
   uploadedFile,
   isMediaFileModalOpen,
-  currentEditingStep,
   isLoading,
 }) {
+  const history = useHistory();
+
   function toggleModal() {
     if (selectedFile) {
       if (!window.confirm(DO_YOU_WANT_LEAVE)) return;
@@ -26,27 +28,28 @@ export default function AppHeader({
     onToggleMediaFileModal();
   }
 
-  function switchTitle() {
-    if (isLoading) {
-      return title.LOADING;
-    }
-    return title[`STEP${currentEditingStep}`]
+  function moveTrimVideoPage() {
+    onToggleMediaFileModal();
+    history.push('/create/trim-video');
   }
 
   return (
-    <Wrapper>
+    <Header>
       <CreateIconButton onClick={toggleModal} />
         {
           isMediaFileModalOpen &&
-          <Modal
+          <FileUploadModal
             isOpen={isMediaFileModalOpen}
             onCloseModal={toggleModal}
-            title={switchTitle()}
+            title={isLoading ? title.LOADING : title.UPLOAD}
             decoration
           >
             {
               isLoading && <LoadingContent />
-
+            }
+            {
+              uploadedFile && !isLoading &&
+              moveTrimVideoPage()
             }
             {
               !uploadedFile && !isLoading &&
@@ -54,23 +57,16 @@ export default function AppHeader({
                 onSaveUploadedFile={onSaveUploadedFile}
                 onDeleteSelectedFile={onDeleteSelectedFile}
                 onSaveSeletedFile={onSaveSeletedFile}
-                onChangeEdtingStep={onChangeEdtingStep}
                 selectedFile={selectedFile}
               />
             }
-            {
-              uploadedFile && !isLoading &&
-              <FileTrimContent
-                uploadedFile={uploadedFile}
-              />
-            }
-          </Modal>
+          </FileUploadModal>
         }
       <Logo />
       <SearchBar>
         <HeaderSearchInput />
         <SearchIconButton />
       </SearchBar>
-    </Wrapper>
+    </Header>
   );
 };

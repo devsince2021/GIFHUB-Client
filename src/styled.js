@@ -8,10 +8,14 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    margin: 0;
-    padding: 0;
+    width: 1200px;
     height: 100vh;
-    font-family: Open-Sans, Helvetica, Sans-Serif;
-    overflow-x: hidden;
+    margin: 0px auto;
+    overflow-y: scroll;
+    background-color: ${({ theme }) => theme.palette.BLACK};
+    color: ${({ theme }) => theme.palette.WHITE};
+    font-family: Helvetica, Sans-Serif;
+    font-size: 16px;
+    font-weight: normal;
   }
 `;

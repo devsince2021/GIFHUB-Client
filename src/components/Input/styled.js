@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledInput = styled.input`
-  color: ${({ theme }) => theme.palette.black};
-  background-color: ${({ theme }) => theme.palette.white};
+  color: ${({ theme }) => theme.palette.BLACK};
+  background-color: ${({ theme }) => theme.palette.WHITE};
   outline: none;
   border: none;
   border-radius: 3px;
@@ -10,8 +10,8 @@ export const StyledInput = styled.input`
 `;
 
 export const StyledHeaderSearchInput = styled(StyledInput)`
-  border-radius: 2px 0 0 2px;
-  grid-column: 1/7;
+  border-radius: 3px 0 0 3px;
+  grid-column: 1/14;
 `;
 
 export const StyledFileSelectInput = styled(StyledInput)`

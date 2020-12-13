@@ -3,8 +3,6 @@ import { createPortal } from 'react-dom';
 import {
   Overlay,
   ModalContainer,
-  CloseButton,
-  Title,
   ModalPage,
   WackyTubeMan,
 } from './styled';
@@ -13,7 +11,6 @@ export default function Modal({
   isOpen,
   children,
   onCloseModal,
-  title,
   decoration,
 }) {
   if (!isOpen) return null;
@@ -34,10 +31,6 @@ export default function Modal({
       </Overlay>
       <ModalContainer>
         <ModalPage>
-          <CloseButton onClick={onCloseModal}>+</CloseButton>
-          <Title>
-            {title}
-          </Title>
           {children}
         </ModalPage>
       </ModalContainer>

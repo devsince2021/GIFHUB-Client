@@ -4,7 +4,7 @@ export const logo = {
 };
 
 export const background = {
-  APP_HEADER: `${process.env.PUBLIC_URL + '/image/app_header_bg.png'}`,
+  MAIN_HEADER: `${process.env.PUBLIC_URL + '/image/main_header_bg.png'}`,
 };
 
 export const icon = {

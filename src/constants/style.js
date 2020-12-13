@@ -7,6 +7,6 @@ export const palette = {
 }
 
 export const fontSize = {
-  LARGE: '1.5rem',
-  SMALL: '0.6rem',
+  LARGE: '1.8rem',
+  SMALL: '0.8rem',
 }

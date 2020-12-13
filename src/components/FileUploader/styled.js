@@ -4,7 +4,7 @@ import { icon } from '../../constants/image';
 export const FileUploadForm = styled.form`
   background-color: ${({theme}) => theme.palette.WHITE};
   height: 70%;
-  border-radius: 3px;
+  border-radius: 4px;
   grid-column: 4/10;
   grid-row: 7/9;
 
@@ -18,12 +18,14 @@ export const FileSelectIcon = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   cursor: pointer;
-  margin: 5px 0 0 3px;
+  margin: 0 0 0 4px;
   grid-column: 1/2;
 `;
 
 export const SelectedFileName = styled.div`
-  font-size: ${({ theme, size }) => theme.fontSize[size] || '1rem' };
+  color: ${({ theme }) => theme.palette.BLACK};
+  font-size: ${({ theme, size }) => theme.fontSize[size] || '1rem'};
+
   margin-left: 8px;
   align-self: center;
   grid-column: 2/6;

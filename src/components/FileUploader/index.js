@@ -31,7 +31,7 @@ return (
       ref={fileSelectInput}
       type='file'
       name='mediaFile'
-      accept='.mov, .mp4, .gif'
+      accept='.mov, .mp4, .gif, .png'
       onChange={changeHandler}
     />
     <FileSelectIcon onClick={clickHandler} />

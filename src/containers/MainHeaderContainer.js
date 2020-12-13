@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import AppHeader from '../components/AppHeader';
+import MainHeader from '../components/Header/MainHeader';
 import {
   actionMediaFile,
   actionModal,
@@ -39,4 +39,4 @@ function mapDispathToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps,mapDispathToProps)(AppHeader);
+export default connect(mapStateToProps,mapDispathToProps)(MainHeader);
