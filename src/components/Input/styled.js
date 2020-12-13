@@ -17,3 +17,39 @@ export const StyledHeaderSearchInput = styled(StyledInput)`
 export const StyledFileSelectInput = styled(StyledInput)`
   display: none;
 `;
+
+export const StyledTimeRangeInput = styled.input`
+  -webkit-appearance: none;
+  background-color: transparent;
+  height: 64%;
+  border-radius: 3px;
+  outline: none;
+  grid-column: 1/${({ column }) => column};
+
+  &::-webkit-slider-thumb {
+     -webkit-appearance: none;
+     width: 20px;
+     height: 50px;
+     border-radius: 3px;
+     border:1px solid gray;
+     background-color: blanchedalmond;
+  }
+`;
+
+export const StyledTimeArrowInput = styled.input`
+  background-color: ${({ theme }) => theme.palette.WHITE};
+  outline: none;
+  border: none;
+  height: 80%;
+  font-size: ${({ theme }) => theme.fontSize.SMALL};
+  border-radius: 3px;
+  grid-column: 10/12;
+  grid-row: ${({ startTime }) => startTime ? '4/5' : '8/9'};
+
+  &
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    height: 30px;
+    opacity: 1
+  }
+`;

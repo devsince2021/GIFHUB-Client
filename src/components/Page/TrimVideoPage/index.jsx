@@ -1,13 +1,14 @@
 import React, { useState, useRef } from 'react';
 import EditorHeader from '../../Header/EditorHeader';
 import { useHistory } from 'react-router-dom';
+import { TimeArrowInput, TimeRangeInput } from '../../Input';
 import {
   EditorContent,
   Description,
   VideoContainer,
   ControllerContainer,
-  ControllerLabel,
-  Controller,
+  TimeRangeInputLabel,
+  TimeRangeInputConatianer,
 } from './styled';
 
 export default function TrimVideoPage({ uploadedFile }) {
@@ -18,7 +19,6 @@ export default function TrimVideoPage({ uploadedFile }) {
   const [video, setVideo] = useState(useRef(null));
   const [startTime, setStartTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [isMouseUp, setIsMouseUp] = useState(true);
 
   function togglePlay(event) {
     const method = isPaused ? 'play' : 'pause';
@@ -26,8 +26,11 @@ export default function TrimVideoPage({ uploadedFile }) {
     setIsPaused(!isPaused);
   }
 
+  console.log(startTime, 'startTime');
+  console.log(duration, 'duration')
+
   function makeVideoLoop(event) {
-    const endTime = startTime + duration
+    const endTime = startTime + duration + 1;
     if (!duration) event.target.pause();
     if (Math.round(event.target.currentTime) === endTime) {
       event.target.currentTime = startTime;
@@ -35,17 +38,17 @@ export default function TrimVideoPage({ uploadedFile }) {
   }
 
   function getTimeStamp(event) {
-    if (event.type === 'mousemove' && isMouseUp) return;
+    const timeStamp = Number(event.target.value);
+    const stampType = event.target.name;
 
-    const timeStamp = Math.round((event.nativeEvent.offsetX / event.target.offsetWidth) * video.current.duration);
-    setVideo(video => ({...video, ...video.current.currentTime = timeStamp }));
-    event.target.className.includes('startTime')
-      ? setStartTime(timeStamp)
-      : setDuration(timeStamp);
-  }
-
-  function mouseUpAndDownHandler() {
-    setIsMouseUp(!isMouseUp);
+    if (stampType === 'startTime') {
+      setVideo(video => ({...video, ...video.current.currentTime = timeStamp }));
+      setStartTime(timeStamp);
+      video.current.play();
+      return;
+    }
+    setVideo(video => ({...video, ...video.current.currentTime = startTime }));
+    setDuration(timeStamp);
   }
 
   return(
@@ -59,7 +62,6 @@ export default function TrimVideoPage({ uploadedFile }) {
             ref={video}
             onClick={togglePlay}
             onTimeUpdate={makeVideoLoop}
-            controls
             autoPlay
           >
             <source src={`http://localhost:4000/mediaFile?id=${uploadedFile._id}`} type='video/mp4' />
@@ -69,26 +71,55 @@ export default function TrimVideoPage({ uploadedFile }) {
           <Description>
             Use the sliders to select Start Time and Duration.
           </Description>
-          <ControllerLabel start>Strat Time</ControllerLabel>
-          <Controller
-            className='startTime'
-            onClick={getTimeStamp}
-            onMouseMove={getTimeStamp}
-            onMouseUp={mouseUpAndDownHandler}
-            onMouseDown={mouseUpAndDownHandler}
-            start
-          >
+          <TimeRangeInputLabel start>
+            Strat Time
+          </TimeRangeInputLabel>
+          <TimeRangeInputConatianer grid={`${Math.round(video.current?.duration)}`} startTime>
+            <TimeRangeInput
+              name='startTime'
+              type='range'
+              min='0'
+              max={`${Math.round(video.current?.duration) - duration}`}
+              step='1'
+              onChange={getTimeStamp}
+              column={`${Math.round(video.current?.duration) - duration}`}
+              startTime
+            />
+          </TimeRangeInputConatianer>
 
-          </Controller>
-          <ControllerLabel>Duration</ControllerLabel>
-          <Controller
-            onClick={getTimeStamp}
-            onMouseMove={getTimeStamp}
-            onMouseUp={mouseUpAndDownHandler}
-            onMouseDown={mouseUpAndDownHandler}
-          >
-
-          </Controller>
+          <TimeArrowInput
+            name='startTime'
+            type='number'
+            min='0'
+            max={`${Math.round(video.current?.duration) - duration}`}
+            step='1'
+            onChange={getTimeStamp}
+            value={startTime}
+            placeholder='s'
+            startTime
+          />
+          <TimeRangeInputLabel>
+            Duration
+          </TimeRangeInputLabel>
+          <TimeRangeInputConatianer grid={`${Math.round(video.current?.duration)}`}>
+            <TimeRangeInput
+              type='range'
+              min='0'
+              max={`${Math.round(video.current?.duration) - startTime}`}
+              step='1'
+              onChange={getTimeStamp}
+              column={`${Math.round(video.current?.duration) - startTime}`}
+            />
+          </TimeRangeInputConatianer>
+          <TimeArrowInput
+            type='number'
+            min='0'
+            max={`${Math.round(video.current?.duration)}`}
+            step='1'
+            onChange={getTimeStamp}
+            value={duration}
+            placeholder='s'
+          />
         </ControllerContainer>
       </EditorContent>
     </>
