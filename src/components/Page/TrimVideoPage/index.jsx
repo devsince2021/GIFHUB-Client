@@ -62,7 +62,7 @@ export default function TrimVideoPage({ uploadedFile }) {
             controls
             autoPlay
           >
-            <source src={`http://localhost:4000/mediaFile?id=${uploadedFile._id}#t=3,5`} type='video/mp4' />
+            <source src={`http://localhost:4000/mediaFile?id=${uploadedFile._id}`} type='video/mp4' />
           </video>
         </VideoContainer>
         <ControllerContainer>
