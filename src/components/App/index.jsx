@@ -1,17 +1,17 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import HomePage from '../Page/HomePage';
-import TrimVideoPage from '../Page/TrimVideoPage';
+import MainPage from '../Page/MainPage';
+import EditorPage from '../Page/EditorPage';
 
 export default function App({ uploadedFile, currentEditingStep }) {
 
   return (
     <>
       <Route path='/' exact>
-        <HomePage />
+        <MainPage />
       </Route>
-      <Route path='/create/trim-video'>
-        <TrimVideoPage uploadedFile={uploadedFile} />
+      <Route path='/create'>
+        <EditorPage uploadedFile={uploadedFile} currentEditingStep={currentEditingStep} />
       </Route>
     </>
   );
