@@ -24,7 +24,6 @@ export default function FileUploadContent({
   async function createFormDataAndSaveUploadedFile() {
     const mediaFile = new FormData();
     mediaFile.append('mediaFile', selectedFile);
-
     onSaveUploadedFile(mediaFile);
     onDeleteSelectedFile();
   }

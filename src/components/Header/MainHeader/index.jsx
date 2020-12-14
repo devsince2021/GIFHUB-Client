@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import  Header  from '..';
 import { Logo, SearchBar } from './styled';
@@ -19,6 +19,11 @@ export default function MainHeader({
   isLoading,
 }) {
   const history = useHistory();
+
+  useEffect(() => {
+    if (!uploadedFile || isLoading) return;
+    moveTrimVideoPage();
+  }, [uploadedFile, isLoading])
 
   function toggleModal() {
     if (selectedFile) {
@@ -46,10 +51,6 @@ export default function MainHeader({
           >
             {
               isLoading && <LoadingContent />
-            }
-            {
-              uploadedFile && !isLoading &&
-              moveTrimVideoPage()
             }
             {
               !uploadedFile && !isLoading &&

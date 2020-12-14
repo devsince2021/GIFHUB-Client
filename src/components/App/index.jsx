@@ -1,18 +1,14 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import MainPage from '../Page/MainPage';
-import EditorPage from '../Page/EditorPage';
+import EditorPageContainer from '../../containers/EditorPageContainer';
 
-export default function App({ uploadedFile, currentEditingStep }) {
+export default function App() {
 
   return (
     <>
-      <Route path='/' exact>
-        <MainPage />
-      </Route>
-      <Route path='/create'>
-        <EditorPage uploadedFile={uploadedFile} currentEditingStep={currentEditingStep} />
-      </Route>
+      <Route path='/' exact component={MainPage} />
+      <Route path='/create' component={EditorPageContainer} />
     </>
   );
 };

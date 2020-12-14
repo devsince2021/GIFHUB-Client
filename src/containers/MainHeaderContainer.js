@@ -1,40 +1,39 @@
 import { connect } from 'react-redux';
 import MainHeader from '../components/Header/MainHeader';
 import {
-  actionMediaFile,
+  actionUploadMediaFile,
   actionModal,
-  nextEditingStep,
-  previousEditingStep
+  actionEditMediaFile,
 } from '../action';
 
 function mapStateToProps(state) {
   return {
-    uploadedFile: state.mediaFile.uploaded.data,
-    selectedFile: state.mediaFile.selected,
+    uploadedFile: state.uploadMediaFile.uploaded.data,
+    selectedFile: state.uploadMediaFile.selected,
     isMediaFileModalOpen: state.modal.isMediaFileModalOpen,
-    currentEditingStep: state.changeEditingStep,
-    isLoading: state.mediaFile.uploaded.loading,
+    currentEditingStep: state.editMediaFile.currentEditingStep,
+    isLoading: state.uploadMediaFile.uploaded.loading,
   }
 }
 
 function mapDispathToProps(dispatch) {
   return {
     onSaveUploadedFile: function(mediaFile) {
-      return dispatch(actionMediaFile.saveUploadedFile(mediaFile));
+      return dispatch(actionUploadMediaFile.saveUploadedFile(mediaFile));
     },
     onSaveSeletedFile: function(mediaFile) {
-      return dispatch(actionMediaFile.saveSelectedFile(mediaFile));
+      return dispatch(actionUploadMediaFile.saveSelectedFile(mediaFile));
     },
     onDeleteSelectedFile: function() {
-      return dispatch(actionMediaFile.deleteSelectedFile());
+      return dispatch(actionUploadMediaFile.deleteSelectedFile());
     },
     onToggleMediaFileModal: function() {
       return dispatch(actionModal.toggleMediaFileModal());
     },
     onChangeEdtingStep: function(direction) {
       return direction === 'next'
-        ? dispatch(nextEditingStep())
-        : dispatch(previousEditingStep());
+        ? dispatch(actionEditMediaFile.nextEditingStep())
+        : dispatch(actionEditMediaFile.previousEditingStep());
     }
   };
 }

@@ -1,5 +1,4 @@
 export default function omitLongFileName(Component, text) {
-  console.log(1)
   switch (true) {
     case (text === 'Select your files..'):
       return(

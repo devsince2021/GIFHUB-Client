@@ -1,13 +1,5 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
-  grid-column: 14/24;
-  grid-row: 3/21;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(12, 1fr);
-`;
-
 export const Description = styled.div`
   text-align: center;
   font-size: ${({ theme }) => theme.fontSize.SMALL};
@@ -19,7 +11,7 @@ export const TimeRangeInputLabel = styled.div`
   font-size: ${({ theme, second }) => second ? theme.fontSize.SMALL : '1rem'};
   width: ${({ width }) => `${100 * width}%`};
   grid-column: ${({ second }) => second ? '8/11' : '2/5'};
-  grid-row: ${({ start }) => start ? '4/5' : '8/9'};
+  grid-row: ${({ startTime }) => startTime ? '4/5' : '8/9'};
 `;
 
 export const TimeRangeInputConatianer = styled.div`

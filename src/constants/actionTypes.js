@@ -9,3 +9,6 @@ export const TOGGLE_MEDIA_FILE_MODAL = 'toggle_media_file_modal';
 
 export const NEXT_EDITING_STEP = 'next_editing_step';
 export const PREVIOUS_EDITING_STEP = 'previous_editing_step';
+
+export const SAVE_START_TIME_STAMP = 'save_start_time_stamp';
+export const SAVE_DURATION_STAMP = 'save_duration_stamp';

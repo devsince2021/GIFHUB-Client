@@ -3,8 +3,8 @@ import App from '../components/App';
 
 function mapStateToProps(state) {
   return {
-    uploadedFile: state.mediaFile.uploaded.data,
-    currentEditingStep: state.changeEditingStep,
+    uploadedFile: state.uploadMediaFile.uploaded.data,
+    currentEditingStep: state.editMediaFile.changeEditingStep,
   }
 }
 

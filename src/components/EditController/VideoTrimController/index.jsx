@@ -1,35 +1,39 @@
 import React from 'react';
 import {
-  Wrapper,
   Description,
   TimeRangeInputLabel,
   TimeRangeInputConatianer,
 } from './styled';
-import { TimeArrowInput, TimeRangeInput } from '../Input';
+import { TimeArrowInput, TimeRangeInput } from '../../Input';
 
-export default function VideoTrimController({ video, setVideo, startTime, setStartTime, duration, setDuration }) {
-
+export default function VideoTrimController({
+  video,
+  startTime,
+  onSaveStartTimeStamp,
+  duration,
+  onSaveDurationStamp
+}) {
   function getTimeStamp(event) {
     const timeStamp = Number(event.target.value);
     const stampType = event.target.name;
 
     if (stampType === 'startTime') {
-      setVideo(video => ({...video, ...video.current.currentTime = timeStamp }));
-      setStartTime(timeStamp);
+      video.current.currentTime = timeStamp;
+      onSaveStartTimeStamp(timeStamp);
       video.current.play();
       return;
     }
-    setVideo(video => ({...video, ...video.current.currentTime = startTime }));
-    setDuration(timeStamp);
+    video.current.currentTime = timeStamp;
+    onSaveDurationStamp(timeStamp);
   }
 
   return(
-    <Wrapper>
+    <>
       <Description>
         Use the sliders to select Start Time and Duration.
       </Description>
-      <TimeRangeInputLabel start>
-          Strat Time
+      <TimeRangeInputLabel startTime>
+        Strat Time
       </TimeRangeInputLabel>
       <TimeArrowInput
         name='startTime'
@@ -39,7 +43,6 @@ export default function VideoTrimController({ video, setVideo, startTime, setSta
         step='1'
         onChange={getTimeStamp}
         value={startTime}
-        placeholder='s'
         startTime
       />
       <TimeRangeInputConatianer grid={`${Math.round(video.current?.duration)}`} startTime>
@@ -55,7 +58,7 @@ export default function VideoTrimController({ video, setVideo, startTime, setSta
         />
       </TimeRangeInputConatianer>
       <TimeRangeInputLabel>
-          Duration
+        Duration
       </TimeRangeInputLabel>
       <TimeArrowInput
         type='number'
@@ -75,6 +78,6 @@ export default function VideoTrimController({ video, setVideo, startTime, setSta
           column={`${Math.round(video.current?.duration) - startTime}`}
         />
       </TimeRangeInputConatianer>
-    </Wrapper>
+    </>
   );
 }

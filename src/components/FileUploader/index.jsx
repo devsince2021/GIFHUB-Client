@@ -36,7 +36,7 @@ return (
     />
     <FileSelectIcon onClick={clickHandler} />
     {handleSelectedFileName(SelectedFileName, placeholder)}
-    <FileUploadIconButton disabled={!selectedFile}/>
+    <FileUploadIconButton disabled={!selectedFile} />
   </FileUploadForm>
   );
 };

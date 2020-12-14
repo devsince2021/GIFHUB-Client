@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import {decorateStyledComponent} from '../../utils';
+import { decorateStyledComponent } from '../../utils';
 import {
   StyledHeaderSearchInput,
   StyledFileSelectInput,
