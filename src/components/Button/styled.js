@@ -22,7 +22,7 @@ export const StyledSearchIconButton = styled(StyledButton)`
 export const StyledCreateIconButton = styled(StyledButton)`
   background-image: url(${icon.CREATE});
   margin: 0 0 10px 10px;
-  grid-column: 6/7;
+  grid-column: 20/21;
   grid-row: 3;
 `;
 
