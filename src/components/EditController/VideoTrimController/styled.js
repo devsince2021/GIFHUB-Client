@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Description = styled.div`
   text-align: center;
@@ -24,4 +25,16 @@ export const TimeRangeInputConatianer = styled.div`
   margin: 0 0;
   display: grid;
   grid-template-columns: repeat(${({ grid }) => grid - 1}, 1fr);
+`;
+
+export const StyledLink = styled(Link)`
+  background-color: ${({ theme }) => theme.palette.YELLOW};
+  color: ${({ theme }) => theme.palette.WHITE};
+  text-decoration: none;
+  font-size: 1rem;
+  text-align: center;
+  padding-top: 3px;
+  border-radius: 3px;
+  grid-column: 10/12;
+  grid-row: 11/12;
 `;

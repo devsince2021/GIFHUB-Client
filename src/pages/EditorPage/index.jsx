@@ -60,6 +60,9 @@ export default function EditorPage({
               onSaveDurationStamp={onSaveDurationStamp}
             />
           </Route>
+          <Route path='/create/add-image'>
+            <h1>add</h1>
+          </Route>
         </ControllerWrapper>
       </EditorContent>
     </>

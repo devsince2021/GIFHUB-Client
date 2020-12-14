@@ -44,7 +44,7 @@ export const StyledTimeArrowInput = styled.input`
   font-size: ${({ theme }) => theme.fontSize.SMALL};
   border-radius: 3px;
   grid-column: 10/12;
-  grid-row: ${({ startTime }) => startTime ? '4/5' : '8/9'};
+  grid-row: ${({ startTime }) => startTime ? '4/5' : '8/9'}};
 
   &
   ::-webkit-outer-spin-button,

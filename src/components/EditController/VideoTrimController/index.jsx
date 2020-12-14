@@ -3,9 +3,9 @@ import {
   Description,
   TimeRangeInputLabel,
   TimeRangeInputConatianer,
+  StyledLink,
 } from './styled';
 import { TimeArrowInput, TimeRangeInput } from '../../Input';
-import { NextStepButton } from '../../Button';
 
 export default function VideoTrimController({
   video,
@@ -79,6 +79,9 @@ export default function VideoTrimController({
           column={`${Math.round(video.current?.duration) - startTime}`}
         />
       </TimeRangeInputConatianer>
+      <StyledLink to='/create/add-image'>
+        next
+      </StyledLink>
     </>
   );
 }
