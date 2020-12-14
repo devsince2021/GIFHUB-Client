@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   max-width: 1200px;
   height: ${({ simple }) => simple ? '100px' : '140px'};
   display: grid;
-  grid-template-columns: repeat(6,1fr);
+  grid-template-columns: repeat(24,1fr);
   grid-template-rows: repeat(3,1fr);
 
   ${({ simple }) =>
