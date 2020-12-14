@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import MainPage from '../Page/MainPage';
-import EditorPageContainer from '../../containers/EditorPageContainer';
+import MainPage from '../../pages/MainPage';
+import EditorPageContainer from '../../containers/EditorPageContainer'
 
 export default function App() {
 

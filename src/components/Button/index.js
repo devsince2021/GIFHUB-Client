@@ -4,6 +4,7 @@ import {
   StyledCreateIconButton,
   StyledModalCloseButton,
   StyledFileUploadIconButton,
+  StyledNextStepButton,
 } from './styled'
 
 export function SearchIconButton(props) {
@@ -20,4 +21,8 @@ export function ModalCloseButton(props) {
 
 export function FileUploadIconButton(props) {
   return decorateStyledComponent(StyledFileUploadIconButton, props)
+}
+
+export function NextStepButton(props) {
+  return decorateStyledComponent(StyledNextStepButton, props)
 }

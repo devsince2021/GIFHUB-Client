@@ -4,7 +4,7 @@ import {
   actionUploadMediaFile,
   actionModal,
   actionEditMediaFile,
-} from '../action';
+} from '../actions';
 
 function mapStateToProps(state) {
   return {

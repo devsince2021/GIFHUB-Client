@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import EditorPage from '../components/Page/EditorPage';
+import EditorPage from '../pages/EditorPage';
 import { actionEditMediaFile } from '../actions';
 
 function mapStateToProps(state) {

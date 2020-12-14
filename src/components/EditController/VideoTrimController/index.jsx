@@ -5,6 +5,7 @@ import {
   TimeRangeInputConatianer,
 } from './styled';
 import { TimeArrowInput, TimeRangeInput } from '../../Input';
+import { NextStepButton } from '../../Button';
 
 export default function VideoTrimController({
   video,
@@ -23,7 +24,7 @@ export default function VideoTrimController({
       video.current.play();
       return;
     }
-    video.current.currentTime = timeStamp;
+    video.current.currentTime = startTime;
     onSaveDurationStamp(timeStamp);
   }
 
@@ -63,7 +64,7 @@ export default function VideoTrimController({
       <TimeArrowInput
         type='number'
         min='0'
-        max={`${Math.round(video.current?.duration)}`}
+        max={`${Math.round(video.current?.duration) - startTime}`}
         step='1'
         onChange={getTimeStamp}
         value={duration}

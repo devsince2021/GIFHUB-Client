@@ -46,3 +46,10 @@ export const StyledFileUploadIconButton = styled(StyledButton)`
       display: none;
     `}
 `;
+
+export const StyledNextStepButton = styled(StyledButton)`
+  border: 1px solid yellow;
+  background-color: red;
+  grid-column: 1/24;
+  grid-row: 10/11;
+`;

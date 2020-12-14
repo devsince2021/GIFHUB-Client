@@ -1,5 +1,5 @@
 import React from 'react';
-import MainHeaderContainer from '../../../containers/MainHeaderContainer';
+import MainHeaderContainer from '../../containers/MainHeaderContainer';
 
 export default function MainPage() {
   return (

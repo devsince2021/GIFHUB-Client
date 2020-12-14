@@ -45,6 +45,7 @@ export default function EditorPage({
             onTimeUpdate={makeVideoLoop}
             muted
             autoPlay
+            controls
           >
             <source src={`http://localhost:4000/mediaFile?id=${uploadedFile?._id}`} type='video/mp4' />
           </video>
