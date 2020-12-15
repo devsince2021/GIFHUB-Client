@@ -15,6 +15,7 @@ export const VideoWrapper = styled.div`
   grid-column: 2/13;
   grid-row: 2/23;
   border: 1px solid pink;
+  display: grid;
 `;
 
 export const ControllerWrapper = styled.div`

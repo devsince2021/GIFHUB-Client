@@ -38,6 +38,7 @@ return (
       onChange={validateAndSaveSelectedFile}
       selectedFile={selectedFile}
       placeholder={inputPlaceholder}
+      video
     />
     <Notification>
       {NOTIFICATION}

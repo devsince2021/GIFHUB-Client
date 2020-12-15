@@ -15,7 +15,7 @@ export default function EditorHeader({ currentEditingStep }) {
     if (!currentEditingStep) {
       return title = 'Step1. Trim your video!'
     } else if (currentEditingStep === 1) {
-      return title = 'Step2. Add Image on the video!'
+      return title = 'Step2. Add your image!'
     } else {
       return title = 'Step3. Finish your editing!'
     }

@@ -1,6 +1,6 @@
 export default function omitLongFileName(Component, text) {
   switch (true) {
-    case (text === 'Select your files..'):
+    case (text.includes('Select')):
       return(
         <Component size='SMALL'>
           {text}

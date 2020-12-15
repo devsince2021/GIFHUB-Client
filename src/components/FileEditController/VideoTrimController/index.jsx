@@ -12,20 +12,25 @@ export default function VideoTrimController({
   startTime,
   onSaveStartTimeStamp,
   duration,
-  onSaveDurationStamp
+  onSaveDurationStamp,
+  onChangeEdtingStep,
 }) {
   function getTimeStamp(event) {
     const timeStamp = Number(event.target.value);
     const stampType = event.target.name;
+    video.current.play();
 
     if (stampType === 'startTime') {
       video.current.currentTime = timeStamp;
       onSaveStartTimeStamp(timeStamp);
-      video.current.play();
       return;
     }
     video.current.currentTime = startTime;
     onSaveDurationStamp(timeStamp);
+  }
+
+  function nextButtonClickHandler() {
+    onChangeEdtingStep('next');
   }
 
   return(
@@ -79,7 +84,10 @@ export default function VideoTrimController({
           column={`${Math.round(video.current?.duration) - startTime}`}
         />
       </TimeRangeInputConatianer>
-      <StyledLink to='/create/add-image'>
+      <StyledLink
+        to='/create/add-image'
+        onClick={nextButtonClickHandler}
+      >
         next
       </StyledLink>
     </>

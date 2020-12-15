@@ -3,7 +3,7 @@ import { icon } from '../../constants/image';
 
 export const FileUploadForm = styled.form`
   background-color: ${({theme}) => theme.palette.WHITE};
-  height: 70%;
+  height: ${({video}) => video ? '70%' : '100%'};
   border-radius: 4px;
   grid-column: 4/10;
   grid-row: 7/9;

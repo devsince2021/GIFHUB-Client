@@ -9,8 +9,10 @@ export default function FileUploader({
   onChange,
   selectedFile,
   placeholder,
+  video,
 }) {
   const fileSelectInput = useRef(null);
+  const accept = video ? '.mov, .mp4, .gif' : '.png, .jpg';
 
   function clickHandler() {
     fileSelectInput.current.click();
@@ -26,12 +28,15 @@ export default function FileUploader({
   }
 
 return (
-  <FileUploadForm onSubmit={submitHandler}>
+  <FileUploadForm
+    onSubmit={submitHandler}
+    video={!!video}
+  >
     <FileSelectInput
       ref={fileSelectInput}
       type='file'
       name='mediaFile'
-      accept='.mov, .mp4, .gif, .png'
+      accept={accept}
       onChange={changeHandler}
     />
     <FileSelectIcon onClick={clickHandler} />

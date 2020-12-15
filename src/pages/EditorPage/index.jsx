@@ -2,21 +2,26 @@ import React, { useState, useRef } from 'react';
 import { Route, useHistory } from 'react-router-dom';
 import EditorHeader from '../../components/Header/EditorHeader';
 import { EditorContent, VideoWrapper, ControllerWrapper } from './styled';
-import { VideoTrimController } from '../../components/EditController';
+import { VideoTrimController, ImageAddController } from '../../components/FileEditController';
+import ImageResizer from '../../components/ImageResizer';
 
 export default function EditorPage({
   uploadedFile,
   currentEditingStep,
   onSaveStartTimeStamp,
   onSaveDurationStamp,
+  onChangeEdtingStep,
   startTime,
   duration,
+  onSaveSeletedFile,
+  selectedFile,
 }) {
-  const history = useHistory();
-  if (!uploadedFile) history.push('/');
+  // const history = useHistory();
+  // if (!uploadedFile) history.push('/');
 
   const video = useRef(null);
   const [isPaused, setIsPaused] = useState(true);
+  const [isImageSubmitted, setIsImageSubmitted] = useState(false);
 
   function togglePlay(event) {
     const method = isPaused ? 'play' : 'pause';
@@ -36,16 +41,16 @@ export default function EditorPage({
     <>
       <EditorHeader currentEditingStep={currentEditingStep} />
       <EditorContent>
+        <ImageResizer></ImageResizer>
         <VideoWrapper>
           <video
             width='100%'
             height='100%'
             ref={video}
-            onClick={togglePlay}
+            onClick={!currentEditingStep && togglePlay}
             onTimeUpdate={makeVideoLoop}
             muted
             autoPlay
-            controls
           >
             <source src={`http://localhost:4000/mediaFile?id=${uploadedFile?._id}`} type='video/mp4' />
           </video>
@@ -58,10 +63,16 @@ export default function EditorPage({
               onSaveStartTimeStamp={onSaveStartTimeStamp}
               duration={duration}
               onSaveDurationStamp={onSaveDurationStamp}
+              onChangeEdtingStep={onChangeEdtingStep}
             />
           </Route>
           <Route path='/create/add-image'>
-            <h1>add</h1>
+            <ImageAddController
+              onSaveSeletedFile={onSaveSeletedFile}
+              selectedFile={selectedFile}
+              onChangeEdtingStep={onChangeEdtingStep}
+              setIsImageSubmitted={setIsImageSubmitted}
+            />
           </Route>
         </ControllerWrapper>
       </EditorContent>

@@ -30,11 +30,6 @@ function mapDispathToProps(dispatch) {
     onToggleMediaFileModal: function() {
       return dispatch(actionModal.toggleMediaFileModal());
     },
-    onChangeEdtingStep: function(direction) {
-      return direction === 'next'
-        ? dispatch(actionEditMediaFile.nextEditingStep())
-        : dispatch(actionEditMediaFile.previousEditingStep());
-    }
   };
 }
 
