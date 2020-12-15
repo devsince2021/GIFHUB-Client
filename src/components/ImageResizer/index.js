@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   ResizingBoard,
   ImageHolder,
@@ -7,8 +7,12 @@ import {
   SouthWestPoint,
   SouthEastPoint,
 } from './styled';
+import { imageSizeAndPositionHandler } from '../../utils';
 
-export default function ImageResizer() {
+export default function ImageResizer({
+  onSaveImageSizeAndPosition,
+  imageFile,
+}) {
   const imageHolder = useRef(null);
 
   const [prevX, setPrevX] = useState(0);
@@ -16,55 +20,45 @@ export default function ImageResizer() {
   const [newX, setNewX] = useState(0);
   const [newY, setNewY] = useState(0);
 
-  const [isUp, setIsUp] = useState(true);
+  const [isMouseUp, setIsMouseUp] = useState(true);
   const [currentResizer, setCurrentResizer] = useState();
   const [isResizing, setIsResizing] = useState(false);
 
-  function togetherMouseDown(e) {
-    if (e.target.classList.contains('resizer')) {
+  function togetherMouseDown(event) {
+    if (event.target.classList.contains('resizer')) {
       setIsResizing(true);
-      setCurrentResizer(e.target);
+      setCurrentResizer(event.target);
     }
 
-    setPrevX(e.screenX);
-    setPrevY(e.screenY);
-    setIsUp(!isUp);
+    setPrevX(event.screenX);
+    setPrevY(event.screenY);
+    setIsMouseUp(!isMouseUp);
   }
 
-  function togetherMouseMove(e) {
-    if(isUp) return;
-    setNewX(prevX - e.screenX);
-    setNewY(prevY - e.screenY);
+  function togetherMouseMove(event) {
+    if(isMouseUp) return;
+    setNewX(prevX - event.screenX);
+    setNewY(prevY - event.screenY);
+
     const rect = imageHolder.current.getBoundingClientRect();
-    if (!isResizing) {
-      imageHolder.current.style.left = (rect.left + window.scrollX) - newX + 'px';
-      imageHolder.current.style.top = (rect.top + window.scrollY) - newY + 'px';
-    } else {
-      if (currentResizer?.classList.contains('se')) {
-        imageHolder.current.style.width = rect.width - newX + 'px';
-        imageHolder.current.style.height = rect.height - newY + 'px';
-      } else if (currentResizer?.classList.contains('sw')) {
-        imageHolder.current.style.width = rect.width + newX + 'px';
-        imageHolder.current.style.height = rect.height - newY + 'px';
-        imageHolder.current.style.left = (rect.left + window.scrollX) - newX + 'px';
-      } else if (currentResizer?.classList.contains('ne')) {
-        imageHolder.current.style.width = rect.width - newX + 'px';
-        imageHolder.current.style.height = rect.height + newY + 'px';
-        imageHolder.current.style.top = (rect.top + window.scrollY) - newY + 'px';
-      } else {
-        imageHolder.current.style.width = rect.width + newX + 'px';
-        imageHolder.current.style.height = rect.height + newY + 'px';
-        imageHolder.current.style.top = (rect.top + window.scrollY) - newY + 'px';
-        imageHolder.current.style.left = (rect.left + window.scrollX) - newX + 'px';
-      }
-    }
 
-    setPrevX(e.screenX);
-    setPrevY(e.screenY);
+    !isResizing
+      ? imageSizeAndPositionHandler.move(imageHolder, rect, newX, newY)
+      : imageSizeAndPositionHandler.resize(currentResizer, imageHolder, rect, newX, newY);
+
+    setPrevX(event.screenX);
+    setPrevY(event.screenY);
   }
 
-  function togetherMouseUp(e) {
-    setIsUp(true);
+  function togetherMouseUp() {
+    setIsMouseUp(true);
+
+    onSaveImageSizeAndPosition({
+      left: imageHolder.current.style.left,
+      top: imageHolder.current.style.top,
+      width: imageHolder.current.style.width || '50px',
+      height: imageHolder.current.style.height || '50px',
+    });
     isResizing && setIsResizing(false);
   }
 

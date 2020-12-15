@@ -28,6 +28,9 @@ function mapDispatchToProps(dispatch) {
     onSaveSeletedFile: function(mediaFile) {
       return dispatch(actionUploadMediaFile.saveSelectedFile(mediaFile));
     },
+    onSaveImageSizeAndPosition: function(sizeAndPosition) {
+      return dispatch(actionEditMediaFile.saveImageSizeAndPosition(sizeAndPosition))
+    }
 
   };
 }

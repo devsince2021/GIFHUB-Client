@@ -15,6 +15,7 @@ export default function EditorPage({
   duration,
   onSaveSeletedFile,
   selectedFile,
+  onSaveImageSizeAndPosition,
 }) {
   // const history = useHistory();
   // if (!uploadedFile) history.push('/');
@@ -36,12 +37,15 @@ export default function EditorPage({
       event.target.currentTime = startTime;
     }
   }
-
+  
   return(
     <>
       <EditorHeader currentEditingStep={currentEditingStep} />
       <EditorContent>
-        <ImageResizer></ImageResizer>
+        <ImageResizer
+          onSaveImageSizeAndPosition={onSaveImageSizeAndPosition}
+          imageFile={selectedFile}
+        />
         <VideoWrapper>
           <video
             width='100%'

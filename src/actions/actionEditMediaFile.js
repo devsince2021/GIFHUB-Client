@@ -3,6 +3,7 @@ import {
   PREVIOUS_EDITING_STEP,
   SAVE_START_TIME_STAMP,
   SAVE_DURATION_STAMP,
+  SAVE_IMAGE_SIZE_AND_POSITION,
 } from '../constants/actionTypes';
 
 export function nextEditingStep() {
@@ -29,4 +30,11 @@ export function saveDurationStamp(duration) {
     type: SAVE_DURATION_STAMP,
     payload: duration,
   };
+}
+
+export function saveImageSizeAndPosition(sizeAndPosition) {
+  return {
+    type: SAVE_IMAGE_SIZE_AND_POSITION,
+    payload: sizeAndPosition,
+  }
 }

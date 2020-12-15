@@ -15,8 +15,8 @@ export const ImageHolder = styled.div`
   background-color: transparent;
   width: 50px;
   height: 50px;
-  top: 150px;
-  left: 220px;
+  top: 350px;
+  left: 250px;
 `;
 
 export const Resizer = styled.div`
