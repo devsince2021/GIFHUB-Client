@@ -33,3 +33,9 @@ export const StyledLink = styled(Link)`
   grid-column: 10/12;
   grid-row: 11/12;
 `;
+
+export const Notification = styled.div`
+  border: 1px solid red;
+  grid-column: 2/6;
+  grid-row: ${({ image }) => image ? '6/7' : '10/11'};
+`;

@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Route, useHistory } from 'react-router-dom';
 import EditorHeader from '../../components/Header/EditorHeader';
 import { EditorContent, VideoWrapper, ControllerWrapper } from './styled';
-import { VideoTrimController, ImageAddController } from '../../components/FileEditController';
+import { VideoTrimController, ImageAddController, FileFormatController } from '../../components/FileEditController';
 import ImageResizer from '../../components/ImageResizer';
 
 export default function EditorPage({
@@ -38,6 +38,14 @@ export default function EditorPage({
     }
   }
 
+  function saveImageSizeAndPosition(sizeAndPosition) {
+    onSaveImageSizeAndPosition(sizeAndPosition)
+  }
+
+  function toggleImageModification() {
+    return currentEditingStep !== 2;
+  }
+
   return(
     <>
       <EditorHeader currentEditingStep={currentEditingStep} />
@@ -45,8 +53,9 @@ export default function EditorPage({
         {
          isImageSubmitted &&
          <ImageResizer
-            onSaveImageSizeAndPosition={onSaveImageSizeAndPosition}
+            onMouseUp={saveImageSizeAndPosition}
             imageFile={selectedFile}
+            onToggleResizer={toggleImageModification}
           />
         }
         <VideoWrapper>
@@ -54,7 +63,7 @@ export default function EditorPage({
             width='100%'
             height='100%'
             ref={video}
-            onClick={!currentEditingStep && togglePlay}
+            onClick={!currentEditingStep ? togglePlay : undefined}
             onTimeUpdate={makeVideoLoop}
             muted
             autoPlay
@@ -79,6 +88,10 @@ export default function EditorPage({
               selectedFile={selectedFile}
               onChangeEdtingStep={onChangeEdtingStep}
               setIsImageSubmitted={setIsImageSubmitted}
+            />
+          </Route>
+          <Route path='/create/select-format'>
+            <FileFormatController
             />
           </Route>
         </ControllerWrapper>

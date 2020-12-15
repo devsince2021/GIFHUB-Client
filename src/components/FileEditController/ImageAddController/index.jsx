@@ -4,6 +4,7 @@ import {
   ControllerLabel,
   FileUploaderConatianer,
   StyledLink,
+  Notification,
 } from './styled';
 import FileUploader from '../../FileUploader';
 
@@ -33,14 +34,14 @@ export default function ImageAddController({
   function nextButtonClickHandler() {
     onChangeEdtingStep('next');
   }
-  
+
   return(
     <>
       <Description>
         Select your Image and put it where you want on the video!
       </Description>
       <ControllerLabel image>
-        Select Image
+        Select Images
       </ControllerLabel>
       <FileUploaderConatianer image>
         <FileUploader
@@ -51,9 +52,11 @@ export default function ImageAddController({
           image
         />
       </FileUploaderConatianer>
-
+      <Notification image>
+        Only Png, Jpg
+      </Notification>
       <StyledLink
-        to='/create/add-image'
+        to='/create/select-format'
         onClick={nextButtonClickHandler}
       >
         next

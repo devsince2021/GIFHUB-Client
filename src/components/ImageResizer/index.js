@@ -10,8 +10,9 @@ import {
 import { imageSizeAndPositionHandler } from '../../utils';
 
 export default function ImageResizer({
-  onSaveImageSizeAndPosition,
+  onMouseUp,
   imageFile,
+  onToggleResizer,
 }) {
   const imageHolder = useRef(null);
 
@@ -38,7 +39,8 @@ export default function ImageResizer({
   }, [imageFile])
 
 
-  function togetherMouseDown(event) {
+  function handleMouseDown(event) {
+    if (!onToggleResizer()) return;
     if (event.target.classList.contains('resizer')) {
       setIsResizing(true);
       setCurrentResizer(event.target);
@@ -49,7 +51,8 @@ export default function ImageResizer({
     setIsMouseUp(!isMouseUp);
   }
 
-  function togetherMouseMove(event) {
+  function handleMouseMove(event) {
+    if (!onToggleResizer()) return;
     if(isMouseUp) return;
     setNewX(prevX - event.screenX);
     setNewY(prevY - event.screenY);
@@ -64,10 +67,11 @@ export default function ImageResizer({
     setPrevY(event.screenY);
   }
 
-  function togetherMouseUp() {
+  function handleMouseUp() {
+    if (!onToggleResizer()) return;
     setIsMouseUp(true);
 
-    onSaveImageSizeAndPosition({
+    onMouseUp({
       left: imageHolder.current.style.left,
       top: imageHolder.current.style.top,
       width: imageHolder.current.style.width || '50px',
@@ -78,18 +82,23 @@ export default function ImageResizer({
 
   return(
     <ResizingBoard
-      onMouseUp={togetherMouseUp}
-      onMouseMove={togetherMouseMove}
+      onMouseUp={handleMouseUp}
+      onMouseMove={handleMouseMove}
     >
       <ImageHolder
         ref={imageHolder}
         url={imageUrl}
-        onMouseDown={togetherMouseDown}
+        onMouseDown={handleMouseDown}
       >
-        <NorthWestPoint className='resizer nw' />
-        <NorthEastPoint className='resizer ne' />
-        <SouthWestPoint className='resizer sw' />
-        <SouthEastPoint className='resizer se' />
+        {
+          onToggleResizer() &&
+          <>
+            <NorthWestPoint className='resizer nw' />
+            <NorthEastPoint className='resizer ne' />
+            <SouthWestPoint className='resizer sw' />
+            <SouthEastPoint className='resizer se' />
+          </>
+        }
       </ImageHolder>
     </ResizingBoard>
   );
