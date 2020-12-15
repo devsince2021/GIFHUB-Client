@@ -2,7 +2,11 @@ import React, { useState, useRef } from 'react';
 import { Route, useHistory } from 'react-router-dom';
 import EditorHeader from '../../components/Header/EditorHeader';
 import { EditorContent, VideoWrapper, ControllerWrapper } from './styled';
-import { VideoTrimController, ImageAddController, FileFormatController } from '../../components/FileEditController';
+import {
+  VideoTrimController,
+  ImageAddController,
+  FileConfirmController
+} from '../../components/FileEditController';
 import ImageResizer from '../../components/ImageResizer';
 
 export default function EditorPage({
@@ -90,8 +94,8 @@ export default function EditorPage({
               setIsImageSubmitted={setIsImageSubmitted}
             />
           </Route>
-          <Route path='/create/select-format'>
-            <FileFormatController
+          <Route path='/create/confirm'>
+            <FileConfirmController
             />
           </Route>
         </ControllerWrapper>

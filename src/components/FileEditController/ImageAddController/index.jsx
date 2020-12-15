@@ -56,7 +56,7 @@ export default function ImageAddController({
         Only Png, Jpg
       </Notification>
       <StyledLink
-        to='/create/select-format'
+        to='/create/confirm'
         onClick={nextButtonClickHandler}
       >
         next
