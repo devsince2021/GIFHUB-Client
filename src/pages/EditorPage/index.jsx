@@ -17,8 +17,8 @@ export default function EditorPage({
   selectedFile,
   onSaveImageSizeAndPosition,
 }) {
-  // const history = useHistory();
-  // if (!uploadedFile) history.push('/');
+  const history = useHistory();
+  if (!uploadedFile) history.push('/');
 
   const video = useRef(null);
   const [isPaused, setIsPaused] = useState(true);
@@ -37,15 +37,18 @@ export default function EditorPage({
       event.target.currentTime = startTime;
     }
   }
-  
+
   return(
     <>
       <EditorHeader currentEditingStep={currentEditingStep} />
       <EditorContent>
-        <ImageResizer
-          onSaveImageSizeAndPosition={onSaveImageSizeAndPosition}
-          imageFile={selectedFile}
-        />
+        {
+         isImageSubmitted &&
+         <ImageResizer
+            onSaveImageSizeAndPosition={onSaveImageSizeAndPosition}
+            imageFile={selectedFile}
+          />
+        }
         <VideoWrapper>
           <video
             width='100%'

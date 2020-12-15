@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
-export const ResizingBoard = styled.div` //app
+export const ResizingBoard = styled.div`
   background-color: transparent;
   width: 100%;
   max-width: 500px;
-  border: 2px solid blue;
   grid-column: 2/13;
   grid-row: 2/23;
   z-index: 2;
@@ -13,6 +12,9 @@ export const ResizingBoard = styled.div` //app
 export const ImageHolder = styled.div`
   position: absolute;
   background-color: transparent;
+  background-image: ${({ url }) => `url(${url})`};
+  background-size: contain;
+  background-repeat: no-repeat;
   width: 50px;
   height: 50px;
   top: 350px;
@@ -27,32 +29,32 @@ export const Resizer = styled.div`
 `;
 
 export const NorthWestPoint = styled(Resizer)`
-  border-top: 3px solid blue;
-  border-left: 3px solid blue;
+  border-top: ${({ theme }) => `3px solid ${theme.palette.ORANGE}`};
+  border-left: ${({ theme }) => `3px solid ${theme.palette.ORANGE}`};
   top: -1px;
   left: -1px;
   cursor: nw-resize;
 `;
 
 export const NorthEastPoint = styled(Resizer)`
-  border-top: 3px solid blue;
-  border-right: 3px solid blue;
+  border-top: ${({ theme }) => `3px solid ${theme.palette.ORANGE}`};
+  border-right: ${({ theme }) => `3px solid ${theme.palette.ORANGE}`};
   top: -1px;
   right: -1px;
   cursor: ne-resize;
 `;
 
 export const SouthWestPoint = styled(Resizer)`
-  border-bottom: 3px solid blue;
-  border-left: 3px solid blue;
+  border-bottom: ${({ theme }) => `3px solid ${theme.palette.ORANGE}`};
+  border-left: ${({ theme }) => `3px solid ${theme.palette.ORANGE}`};
   bottom: -1px;
   left: -1px;
   cursor: sw-resize;
 `;
 
 export const SouthEastPoint = styled(Resizer)`
-  border-bottom: 3px solid blue;
-  border-right: 3px solid blue;
+  border-bottom: ${({ theme }) => `3px solid ${theme.palette.ORANGE}`};
+  border-right: ${({ theme }) => `3px solid ${theme.palette.ORANGE}`};
   bottom: -1px;
   right: -1px;
   cursor: se-resize;

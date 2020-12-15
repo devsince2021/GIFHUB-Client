@@ -24,6 +24,20 @@ export default function ImageResizer({
   const [currentResizer, setCurrentResizer] = useState();
   const [isResizing, setIsResizing] = useState(false);
 
+  const [imageUrl, setImageUrl] = useState('');
+
+  useEffect(() => {
+    if (!imageFile?.type.includes('image')) return;
+    const reader = new FileReader();
+
+    reader.addEventListener('load', function () {
+      setImageUrl(reader.result);
+    }, false);
+
+    reader.readAsDataURL(imageFile);
+  }, [imageFile])
+
+
   function togetherMouseDown(event) {
     if (event.target.classList.contains('resizer')) {
       setIsResizing(true);
@@ -69,6 +83,7 @@ export default function ImageResizer({
     >
       <ImageHolder
         ref={imageHolder}
+        url={imageUrl}
         onMouseDown={togetherMouseDown}
       >
         <NorthWestPoint className='resizer nw' />
