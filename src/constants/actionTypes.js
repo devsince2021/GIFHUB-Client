@@ -14,3 +14,4 @@ export const SAVE_START_TIME_STAMP = 'save_start_time_stamp';
 export const SAVE_DURATION_STAMP = 'save_duration_stamp';
 
 export const SAVE_IMAGE_SIZE_AND_POSITION = 'save_image_size_and_position';
+export const SAVE_FINAL_FILE_FORMAT = 'save_final_file_format';

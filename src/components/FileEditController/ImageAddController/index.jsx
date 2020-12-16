@@ -53,7 +53,7 @@ export default function ImageAddController({
         />
       </FileUploaderConatianer>
       <Notification image>
-        Only Png, Jpg
+        Supported Formats: JPG, PNG
       </Notification>
       <StyledLink
         to='/create/confirm'

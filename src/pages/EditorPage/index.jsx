@@ -20,6 +20,7 @@ export default function EditorPage({
   onSaveSeletedFile,
   selectedFile,
   onSaveImageSizeAndPosition,
+  onSaveFinalFileFormat,
 }) {
   const history = useHistory();
   if (!uploadedFile) history.push('/');
@@ -36,6 +37,7 @@ export default function EditorPage({
 
   function makeVideoLoop(event) {
     const endTime = startTime + duration + 1;
+    if (currentEditingStep === 2) return event.target.play();
     if (!duration) event.target.pause();
     if (Math.round(event.target.currentTime) === endTime) {
       event.target.currentTime = startTime;
@@ -96,6 +98,8 @@ export default function EditorPage({
           </Route>
           <Route path='/create/confirm'>
             <FileConfirmController
+              uploadedFile={uploadedFile}
+              onSaveFinalFileFormat={onSaveFinalFileFormat}
             />
           </Route>
         </ControllerWrapper>

@@ -30,6 +30,9 @@ function mapDispatchToProps(dispatch) {
     },
     onSaveImageSizeAndPosition: function(sizeAndPosition) {
       return dispatch(actionEditMediaFile.saveImageSizeAndPosition(sizeAndPosition))
+    },
+    onSaveFinalFileFormat: function(format) {
+      return dispatch(actionEditMediaFile.saveFinalFileFormat(format));
     }
 
   };

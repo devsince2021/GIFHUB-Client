@@ -5,6 +5,7 @@ import {
   SAVE_START_TIME_STAMP,
   SAVE_DURATION_STAMP,
   SAVE_IMAGE_SIZE_AND_POSITION,
+  SAVE_FINAL_FILE_FORMAT,
 } from '../constants/actionTypes';
 
 function changeEditingStep(state = 0, action) {
@@ -45,7 +46,17 @@ function saveImageSizeAndPosition(state = {}, action) {
   }
 }
 
+function saveFinalFileFormat(state = '', action) {
+  switch(action.type) {
+    case SAVE_FINAL_FILE_FORMAT:
+      return action.payload;
+    default:
+      return state;
+  }
+}
+
 export default combineReducers({
+  saveFinalFileFormat,
   changeEditingStep,
   saveStartTimeStamp,
   saveDurationStamp,

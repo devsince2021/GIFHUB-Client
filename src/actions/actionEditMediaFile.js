@@ -4,6 +4,7 @@ import {
   SAVE_START_TIME_STAMP,
   SAVE_DURATION_STAMP,
   SAVE_IMAGE_SIZE_AND_POSITION,
+  SAVE_FINAL_FILE_FORMAT,
 } from '../constants/actionTypes';
 
 export function nextEditingStep() {
@@ -36,5 +37,12 @@ export function saveImageSizeAndPosition(sizeAndPosition) {
   return {
     type: SAVE_IMAGE_SIZE_AND_POSITION,
     payload: sizeAndPosition,
+  }
+}
+
+export function saveFinalFileFormat(format) {
+  return {
+    type: SAVE_FINAL_FILE_FORMAT,
+    payload: format,
   }
 }

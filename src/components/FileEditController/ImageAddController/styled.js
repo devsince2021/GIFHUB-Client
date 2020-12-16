@@ -9,7 +9,7 @@ export const Description = styled.div`
 `;
 
 export const ControllerLabel = styled.div`
-  font-size: ${({ theme, second }) => second ? theme.fontSize.SMALL : '1rem'};
+  font-size: 1rem;
   width: ${({ width }) => `${100 * width}%`};
   grid-column: 2/6;
   grid-row: ${({ image }) => image ? '4/5' : '8/9'};
@@ -35,7 +35,7 @@ export const StyledLink = styled(Link)`
 `;
 
 export const Notification = styled.div`
-  border: 1px solid red;
-  grid-column: 2/6;
+  align-self: center;
+  grid-column: 2/8;
   grid-row: ${({ image }) => image ? '6/7' : '10/11'};
 `;

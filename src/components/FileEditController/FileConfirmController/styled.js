@@ -4,22 +4,15 @@ import { Link } from 'react-router-dom';
 export const Description = styled.div`
   text-align: center;
   font-size: ${({ theme }) => theme.fontSize.SMALL};
-  grid-column: 1/13;
+  grid-column: 1/12;
   grid-row: 2/3;
 `;
 
 export const ControllerLabel = styled.div`
-  font-size: ${({ theme, second }) => second ? theme.fontSize.SMALL : '1rem'};
+  font-size: 1rem;
   width: ${({ width }) => `${100 * width}%`};
-  grid-column: 2/6;
-  grid-row: ${({ image }) => image ? '4/5' : '8/9'};
-`;
-
-export const FileUploaderConatianer = styled.div`
-  height: 100%;
-  border-radius: 3px;
-  grid-column: 2/9;
-  grid-row: ${({ image }) => image ? '5/6' : '9/10'};
+  grid-column: ${({ list }) => list ? '8/12' : '2/6'};
+  grid-row: ${({ format }) => format ? '4/5' : '8/9'};
 `;
 
 export const StyledLink = styled(Link)`
