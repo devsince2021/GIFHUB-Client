@@ -12,6 +12,10 @@ export default function Modal({
   children,
   onCloseModal,
   decoration,
+  width,
+  height,
+  top,
+  left,
 }) {
   if (!isOpen) return null;
 
@@ -29,7 +33,12 @@ export default function Modal({
       <Overlay onClick={onCloseModal}>
         {decoration && decorateModal()}
       </Overlay>
-      <ModalContainer>
+      <ModalContainer
+        width={width}
+        height={height}
+        top={top}
+        left={left}
+      >
         <ModalPage>
           {children}
         </ModalPage>

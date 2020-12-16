@@ -8,6 +8,7 @@ import {
   FileConfirmController
 } from '../../components/FileEditController';
 import ImageResizer from '../../components/ImageResizer';
+import FileCreateModal from '../../components/Modal/FileCreateModal';
 
 export default function EditorPage({
   uploadedFile,
@@ -50,6 +51,10 @@ export default function EditorPage({
 
   function toggleImageModification() {
     return currentEditingStep !== 2;
+  }
+
+  function loadEditedMediaFile() {
+    console.log('click')
   }
 
   return(
@@ -100,6 +105,10 @@ export default function EditorPage({
             <FileConfirmController
               uploadedFile={uploadedFile}
               onSaveFinalFileFormat={onSaveFinalFileFormat}
+              onClick={loadEditedMediaFile}
+            />
+            <FileCreateModal
+              title='Creating...'
             />
           </Route>
         </ControllerWrapper>

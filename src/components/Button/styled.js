@@ -46,3 +46,15 @@ export const StyledFileUploadIconButton = styled(StyledButton)`
       display: none;
     `}
 `;
+
+export const StyledEditFinishButton = styled(StyledButton)`
+  background-color: ${({ theme }) => theme.palette.YELLOW};
+  color: ${({ theme }) => theme.palette.WHITE};
+  text-decoration: none;
+  font-size: 1rem;
+  text-align: center;
+  padding-top: 3px;
+  border-radius: 3px;
+  grid-column: 10/12;
+  grid-row: 11/12;
+`;

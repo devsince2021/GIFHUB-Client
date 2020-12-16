@@ -12,14 +12,14 @@ export const Overlay = styled.div`
 `;
 
 export const ModalContainer = styled.div`
-  width: 50%;
-  height: 60%;
+  width: ${({ width }) => width || '50%'};
+  height: ${({ height }) => height || '60%'};
   background-color: ${({ theme }) => theme.palette.WHITE};
   border-radius: 6px;
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.6);
   position: absolute;
-  top: 22%;
-  left: 25%;
+  top: ${({ top }) => top || '22%'};
+  left: ${({ left }) => left || '25%'};
   z-index: 9998;
 `;
 

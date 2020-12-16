@@ -21,14 +21,7 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   font-size: 1rem;
   text-align: center;
-  padding-top: 3px;
   border-radius: 3px;
   grid-column: 10/12;
   grid-row: 11/12;
-`;
-
-export const Notification = styled.div`
-  border: 1px solid red;
-  grid-column: 2/6;
-  grid-row: ${({ image }) => image ? '6/7' : '10/11'};
 `;

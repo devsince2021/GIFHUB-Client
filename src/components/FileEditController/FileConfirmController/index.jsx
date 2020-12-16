@@ -1,14 +1,24 @@
 import React from 'react';
 import { Description, ControllerLabel } from './styled';
+import { EditFinishButton } from '../../Button';
 import ToggleSlider from '../../ToggleSlider';
 
 export default function FileConfirmController({
   uploadedFile,
   onSaveFinalFileFormat,
+  onClick
 }) {
 
   function generateOptionText() {
     return uploadedFile.content_type.split('/')[1].toUpperCase();
+  }
+
+  function sliderClickHandler() {
+    onSaveFinalFileFormat()
+  }
+
+  function finishButtonClickHandler() {
+    onClick()
   }
 
   return(
@@ -22,10 +32,14 @@ export default function FileConfirmController({
       <ControllerLabel format list>
         <ToggleSlider
           optionText={generateOptionText()}
-          onClick={onSaveFinalFileFormat}
+          onClick={sliderClickHandler}
         />
       </ControllerLabel>
-
+      <EditFinishButton
+        onClick={finishButtonClickHandler}
+      >
+        Create
+      </EditFinishButton>
     </>
   );
 }
