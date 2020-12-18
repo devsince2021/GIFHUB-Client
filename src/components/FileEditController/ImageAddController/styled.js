@@ -16,10 +16,11 @@ export const ControllerLabel = styled.div`
 `;
 
 export const FileUploaderConatianer = styled.div`
-  height: 100%;
+  height: 110%;
   border-radius: 3px;
   grid-column: 2/9;
   grid-row: ${({ image }) => image ? '5/6' : '9/10'};
+  box-shadow: 1px 1px 8px gray;
 `;
 
 export const StyledLink = styled(Link)`
@@ -37,5 +38,6 @@ export const StyledLink = styled(Link)`
 export const Notification = styled.div`
   align-self: center;
   grid-column: 2/8;
+  margin-top: 10px;
   grid-row: ${({ image }) => image ? '6/7' : '10/11'};
 `;

@@ -5,13 +5,13 @@ export default function ToggleSlider({
   onClick,
   optionText,
 }) {
-  const [isLeft, setIsLeft] = useState(true);
+  const [isLeft, setIsLeft] = useState(false);
 
   function clickHandler(event) {
     event.target.classList.contains('left')
       ? setIsLeft(true)
       : setIsLeft(false);
-    onClick(event.target.innerText);
+    onClick(event.target.innerText.toLowerCase());
   }
 
   return(

@@ -9,6 +9,10 @@ function mapStateToProps(state) {
     currentEditingStep: state.editMediaFile.changeEditingStep,
     startTime: state.editMediaFile.saveStartTimeStamp,
     duration: state.editMediaFile.saveDurationStamp,
+    imageSizeAndPosition: state.editMediaFile.saveImageSizeAndPosition,
+    format: state.editMediaFile.saveFinalFileFormat,
+    finalFile: state.editMediaFile.createFinalFile.data,
+    isFinalFileLoading: state.editMediaFile.createFinalFile.loading,
   };
 }
 
@@ -33,8 +37,10 @@ function mapDispatchToProps(dispatch) {
     },
     onSaveFinalFileFormat: function(format) {
       return dispatch(actionEditMediaFile.saveFinalFileFormat(format));
+    },
+    onCreateFinalFile: function(options) {
+      return dispatch(actionEditMediaFile.createFinalFile(options));
     }
-
   };
 }
 

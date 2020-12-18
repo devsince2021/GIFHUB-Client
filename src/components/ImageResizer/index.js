@@ -45,17 +45,18 @@ export default function ImageResizer({
       setIsResizing(true);
       setCurrentResizer(event.target);
     }
-
-    setPrevX(event.screenX);
-    setPrevY(event.screenY);
+    console.log(event.clientY,'cy')
+    console.log(event.screenY,'sy')
+    setPrevX(event.clientX);
+    setPrevY(event.clientY);
     setIsMouseUp(!isMouseUp);
   }
 
   function handleMouseMove(event) {
     if (!onToggleResizer()) return;
     if(isMouseUp) return;
-    setNewX(prevX - event.screenX);
-    setNewY(prevY - event.screenY);
+    setNewX(prevX - event.clientX);
+    setNewY(prevY - event.clientY);
 
     const rect = imageHolder.current.getBoundingClientRect();
 
@@ -63,8 +64,8 @@ export default function ImageResizer({
       ? imageSizeAndPositionHandler.move(imageHolder, rect, newX, newY)
       : imageSizeAndPositionHandler.resize(currentResizer, imageHolder, rect, newX, newY);
 
-    setPrevX(event.screenX);
-    setPrevY(event.screenY);
+    setPrevX(event.clientX);
+    setPrevY(event.clientY);
   }
 
   function handleMouseUp() {
@@ -72,10 +73,10 @@ export default function ImageResizer({
     setIsMouseUp(true);
 
     onMouseUp({
-      left: imageHolder.current.style.left,
-      top: imageHolder.current.style.top,
-      width: imageHolder.current.style.width || '50px',
-      height: imageHolder.current.style.height || '50px',
+      left: `${imageHolder.current.style.left.split('px')[0] - 104}`,
+      top: `${imageHolder.current.style.top.split('px')[0] - 256}`,
+      width: imageHolder.current.style.width.split('px')[0] || '50',
+      height: imageHolder.current.style.height.split('px')[0] || '50',
     });
     isResizing && setIsResizing(false);
   }

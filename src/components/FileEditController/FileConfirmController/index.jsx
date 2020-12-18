@@ -13,8 +13,8 @@ export default function FileConfirmController({
     return uploadedFile.content_type.split('/')[1].toUpperCase();
   }
 
-  function sliderClickHandler() {
-    onSaveFinalFileFormat()
+  function sliderClickHandler(format) {
+    onSaveFinalFileFormat(format)
   }
 
   function finishButtonClickHandler() {
@@ -26,10 +26,15 @@ export default function FileConfirmController({
       <Description>
         Check the final file and select format to finish!
       </Description>
-      <ControllerLabel format>
+      <ControllerLabel
+        format='true'
+      >
         Format
       </ControllerLabel>
-      <ControllerLabel format list>
+      <ControllerLabel
+        format='true'
+        list='true'
+      >
         <ToggleSlider
           optionText={generateOptionText()}
           onClick={sliderClickHandler}

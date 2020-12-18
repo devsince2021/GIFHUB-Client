@@ -10,7 +10,6 @@ export const Description = styled.div`
 
 export const ControllerLabel = styled.div`
   font-size: 1rem;
-  width: ${({ width }) => `${100 * width}%`};
   grid-column: ${({ list }) => list ? '8/12' : '2/6'};
   grid-row: ${({ format }) => format ? '4/5' : '8/9'};
 `;

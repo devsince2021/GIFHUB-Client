@@ -21,6 +21,7 @@ export default function VideoTrimController({
     video.current.play();
 
     if (stampType === 'startTime') {
+      console.log(timeStamp,'1')
       video.current.currentTime = timeStamp;
       onSaveStartTimeStamp(timeStamp);
       return;

@@ -35,7 +35,7 @@ return (
     <FileSelectInput
       ref={fileSelectInput}
       type='file'
-      name='mediaFile'
+      name={video ? 'mediaFile' : 'image'}
       accept={accept}
       onChange={changeHandler}
     />

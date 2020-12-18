@@ -3,7 +3,6 @@ import MainHeader from '../components/Header/MainHeader';
 import {
   actionUploadMediaFile,
   actionModal,
-  actionEditMediaFile,
 } from '../actions';
 
 function mapStateToProps(state) {

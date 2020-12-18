@@ -15,3 +15,7 @@ export const SAVE_DURATION_STAMP = 'save_duration_stamp';
 
 export const SAVE_IMAGE_SIZE_AND_POSITION = 'save_image_size_and_position';
 export const SAVE_FINAL_FILE_FORMAT = 'save_final_file_format';
+
+export const CREATE_FINAL_FILE = 'create_final_file';
+export const CREATE_FINAL_FILE_SUCCESS = 'create_final_file_success';
+export const CREATE_FINAL_FILE_ERROR = 'create_final_file_error';

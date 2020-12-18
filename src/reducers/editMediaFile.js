@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducerUtils } from '../utils';
 import {
   NEXT_EDITING_STEP,
   PREVIOUS_EDITING_STEP,
@@ -6,6 +7,9 @@ import {
   SAVE_DURATION_STAMP,
   SAVE_IMAGE_SIZE_AND_POSITION,
   SAVE_FINAL_FILE_FORMAT,
+  CREATE_FINAL_FILE,
+  CREATE_FINAL_FILE_SUCCESS,
+  CREATE_FINAL_FILE_ERROR,
 } from '../constants/actionTypes';
 
 function changeEditingStep(state = 0, action) {
@@ -37,7 +41,14 @@ function saveDurationStamp(state = 0, action) {
   }
 }
 
-function saveImageSizeAndPosition(state = {}, action) {
+const initSizeAndPosition = {
+  left: `${250 - 52}`,
+  top: `${350 - 128}`,
+  width: '50',
+  height: '50',
+};
+
+function saveImageSizeAndPosition(state = initSizeAndPosition, action) {
   switch (action.type) {
     case SAVE_IMAGE_SIZE_AND_POSITION:
       return {...action.payload};
@@ -46,10 +57,25 @@ function saveImageSizeAndPosition(state = {}, action) {
   }
 }
 
-function saveFinalFileFormat(state = '', action) {
+function saveFinalFileFormat(state = 'gif', action) {
   switch(action.type) {
     case SAVE_FINAL_FILE_FORMAT:
       return action.payload;
+    default:
+      return state;
+  }
+}
+
+const initialState = reducerUtils.initial();
+
+function createFinalFile(state = initialState, action) {
+  switch(action.type) {
+    case CREATE_FINAL_FILE:
+      return reducerUtils.loading();
+    case CREATE_FINAL_FILE_SUCCESS:
+      return reducerUtils.success(action.payload);
+    case CREATE_FINAL_FILE_ERROR:
+      return 'error';
     default:
       return state;
   }
@@ -61,4 +87,5 @@ export default combineReducers({
   saveStartTimeStamp,
   saveDurationStamp,
   saveImageSizeAndPosition,
+  createFinalFile,
 });

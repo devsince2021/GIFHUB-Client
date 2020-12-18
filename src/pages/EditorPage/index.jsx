@@ -11,17 +11,22 @@ import ImageResizer from '../../components/ImageResizer';
 import FileCreateModal from '../../components/Modal/FileCreateModal';
 
 export default function EditorPage({
-  uploadedFile,
-  currentEditingStep,
   onSaveStartTimeStamp,
   onSaveDurationStamp,
   onChangeEdtingStep,
-  startTime,
-  duration,
   onSaveSeletedFile,
-  selectedFile,
   onSaveImageSizeAndPosition,
   onSaveFinalFileFormat,
+  onCreateFinalFile,
+  uploadedFile,
+  currentEditingStep,
+  startTime,
+  duration,
+  selectedFile,
+  imageSizeAndPosition,
+  format,
+  isFinalFileLoading,
+  finalFile,
 }) {
   const history = useHistory();
   if (!uploadedFile) history.push('/');
@@ -54,7 +59,19 @@ export default function EditorPage({
   }
 
   function loadEditedMediaFile() {
-    console.log('click')
+    console.log('click create button');
+    const imageFile = new FormData();
+    imageFile.append('image', selectedFile);
+
+    const options = {
+      imageFile,
+      uploadedFile,
+      startTime,
+      duration,
+      imageSizeAndPosition,
+      format
+    };
+    onCreateFinalFile(options);
   }
 
   return(
@@ -79,7 +96,7 @@ export default function EditorPage({
             muted
             autoPlay
           >
-            <source src={`http://localhost:4000/mediaFile?id=${uploadedFile?._id}`} type='video/mp4' />
+            <source src={`http://localhost:4000/mediaFile/${uploadedFile?._id}`} type='video/mp4' />
           </video>
         </VideoWrapper>
         <ControllerWrapper>
@@ -107,9 +124,9 @@ export default function EditorPage({
               onSaveFinalFileFormat={onSaveFinalFileFormat}
               onClick={loadEditedMediaFile}
             />
-            <FileCreateModal
+            {/* <FileCreateModal
               title='Creating...'
-            />
+            /> */}
           </Route>
         </ControllerWrapper>
       </EditorContent>

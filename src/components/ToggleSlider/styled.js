@@ -12,7 +12,7 @@ export const Left = styled.div`
   background-color: ${({ theme, clicked }) => clicked ? theme.palette.ORANGE : 'gray'};
   transition: all 0.3s ease;
   text-align: center;
-  padding-top: 8px;
+  padding: 8px 5px 8px 5px;
   border-radius: 4px 0 0 4px;
   font-size: 0.8rem;
   cursor: pointer;

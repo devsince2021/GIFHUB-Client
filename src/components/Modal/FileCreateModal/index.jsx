@@ -4,7 +4,6 @@ import { Title, Description } from './styled';
 
 export default function FileCreateModal({
   title,
-  children,
 }) {
   return(
     <Modal
@@ -12,7 +11,7 @@ export default function FileCreateModal({
       width='40%'
       height='50%'
       top='27%'
-      left='30%'
+      left='28%'
     >
       <Title>
         {title}
