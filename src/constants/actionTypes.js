@@ -19,3 +19,10 @@ export const SAVE_FINAL_FILE_FORMAT = 'save_final_file_format';
 export const CREATE_FINAL_FILE = 'create_final_file';
 export const CREATE_FINAL_FILE_SUCCESS = 'create_final_file_success';
 export const CREATE_FINAL_FILE_ERROR = 'create_final_file_error';
+
+export const DELETE_UPLOADED_FILE = 'delete_uploaded_file';
+export const INIT_EDITING_STEP = 'init_editing_step';
+export const INIT_START_TIME_STAMP = 'init_start_time_stamp';
+export const INIT_DURATION_STAMP = 'init_duration_stamp';
+export const INIT_IMAGE_SIZE_AND_POSITION = 'init_image_size_and_position';
+export const DELETE_FINAL_FILE = 'delete_final_file';

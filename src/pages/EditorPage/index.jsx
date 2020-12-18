@@ -8,7 +8,7 @@ import {
   FileConfirmController
 } from '../../components/FileEditController';
 import ImageResizer from '../../components/ImageResizer';
-import FileCreateModal from '../../components/Modal/FileCreateModal';
+import FileDownloadModal from '../../components/Modal/FileDownloadModal';
 
 export default function EditorPage({
   onSaveStartTimeStamp,
@@ -27,6 +27,7 @@ export default function EditorPage({
   format,
   isFinalFileLoading,
   finalFile,
+  onInitialize,
 }) {
   const history = useHistory();
   if (!uploadedFile) history.push('/');
@@ -34,6 +35,7 @@ export default function EditorPage({
   const video = useRef(null);
   const [isPaused, setIsPaused] = useState(true);
   const [isImageSubmitted, setIsImageSubmitted] = useState(false);
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
 
   function togglePlay(event) {
     const method = isPaused ? 'play' : 'pause';
@@ -71,8 +73,17 @@ export default function EditorPage({
       format
     };
     onCreateFinalFile(options);
+    setIsDownloadModalOpen(!isDownloadModalOpen);
   }
 
+  function handleClickDownloadModalButton() {
+    const result = window.confirm('Do you want leave?');
+    if (!result) return;
+    onInitialize();
+    setIsDownloadModalOpen(!isFinalFileLoading);
+    history.push('/')
+  }
+  console.log(isFinalFileLoading,'modal')
   return(
     <>
       <EditorHeader currentEditingStep={currentEditingStep} />
@@ -123,9 +134,12 @@ export default function EditorPage({
               onSaveFinalFileFormat={onSaveFinalFileFormat}
               onClick={loadEditedMediaFile}
             />
-            {/* <FileCreateModal
-              title='Creating...'
-            /> */}
+            <FileDownloadModal
+              isLoading={isFinalFileLoading}
+              isOpen={isDownloadModalOpen}
+              onClick={handleClickDownloadModalButton}
+              downloadUrl={finalFile?.location}
+            />
           </Route>
         </ControllerWrapper>
       </EditorContent>

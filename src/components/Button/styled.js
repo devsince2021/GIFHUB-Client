@@ -58,3 +58,10 @@ export const StyledEditFinishButton = styled(StyledButton)`
   grid-column: 10/12;
   grid-row: 11/12;
 `;
+
+export const StyledCancelButton = styled(StyledButton)`
+  border: 1px solid gray;
+  background-color: ${({ download }) => download ? 'green' : 'tarnsparent'};
+  grid-column: ${({ download }) => download ? '7/10' : '4/7'};
+  grid-row: 8/10;
+`;

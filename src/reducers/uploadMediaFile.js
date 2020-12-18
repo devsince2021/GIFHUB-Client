@@ -4,6 +4,7 @@ import {
   SAVE_UPLOADED_FILE,
   SAVE_UPLOADED_FILE_SUCCESS,
   SAVE_UPLOADED_FILE_ERROR,
+  DELETE_UPLOADED_FILE,
   SAVE_SELECTED_FILE,
   DELETE_SELECTED_FILE,
 } from '../constants/actionTypes';
@@ -18,6 +19,8 @@ function uploaded(state = initialState, action) {
       return reducerUtils.success(action.payload);
     case SAVE_UPLOADED_FILE_ERROR:
       return 'error';
+    case DELETE_UPLOADED_FILE:
+      return initialState;
     default:
       return state;
   }

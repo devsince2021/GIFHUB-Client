@@ -3,10 +3,17 @@ import { createPromiseThunk } from '../utils';
 import {
   SAVE_UPLOADED_FILE,
   SAVE_SELECTED_FILE,
-  DELETE_SELECTED_FILE
+  DELETE_SELECTED_FILE,
+  DELETE_UPLOADED_FILE,
 } from '../constants/actionTypes';
 
 export const saveUploadedFile = createPromiseThunk(SAVE_UPLOADED_FILE, api.uploadMediaFile);
+
+export const deleteUploadedFile = function() {
+  return {
+    type: DELETE_UPLOADED_FILE,
+  };
+};
 
 export const saveSelectedFile = function(payload) {
   return {

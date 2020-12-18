@@ -5,6 +5,7 @@ import {
   StyledModalCloseButton,
   StyledFileUploadIconButton,
   StyledEditFinishButton,
+  StyledCancelButton,
 } from './styled'
 
 export function SearchIconButton(props) {
@@ -25,4 +26,8 @@ export function FileUploadIconButton(props) {
 
 export function EditFinishButton(props) {
   return decorateStyledComponent(StyledEditFinishButton, props)
+}
+
+export function CancelButton(props) {
+  return decorateStyledComponent(StyledCancelButton, props)
 }

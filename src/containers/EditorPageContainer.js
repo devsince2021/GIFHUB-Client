@@ -40,6 +40,16 @@ function mapDispatchToProps(dispatch) {
     },
     onCreateFinalFile: function(options) {
       return dispatch(actionEditMediaFile.createFinalFile(options));
+    },
+    onInitialize: function() {
+      dispatch(actionUploadMediaFile.deleteSelectedFile());
+      dispatch(actionUploadMediaFile.deleteUploadedFile());
+      dispatch(actionEditMediaFile.deleteFinalFile());
+      dispatch(actionEditMediaFile.initImageSizeAndPosition());
+      dispatch(actionEditMediaFile.initDurationStamp());
+      dispatch(actionEditMediaFile.initStartTimepStamp());
+      dispatch(actionEditMediaFile.initEditingStep());
+      return;
     }
   };
 }
