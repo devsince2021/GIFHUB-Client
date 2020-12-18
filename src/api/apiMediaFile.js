@@ -22,7 +22,6 @@ export async function uploadMediaFile(mediaFile) {
 
 export async function createFinalFile(options) {
   try {
-    console.log(options, 'api')
     const {
       uploadedFile,
       imageFile,
@@ -31,7 +30,6 @@ export async function createFinalFile(options) {
       format,
       imageSizeAndPosition,
     } = options;
-
     const { top, left, width, height } = imageSizeAndPosition;
 
     const url = `

@@ -59,7 +59,6 @@ export default function EditorPage({
   }
 
   function loadEditedMediaFile() {
-    console.log('click create button');
     const imageFile = new FormData();
     imageFile.append('image', selectedFile);
 
