@@ -33,6 +33,7 @@ function changeEditingStep(state = 0, action) {
 function saveStartTimeStamp(state = 0, action) {
   switch (action.type) {
     case SAVE_START_TIME_STAMP:
+      console.log(action.payload, 'in reudever')
       return action.payload;
     case INIT_START_TIME_STAMP:
       return 0;

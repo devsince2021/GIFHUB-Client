@@ -20,7 +20,6 @@ export const FileUploaderConatianer = styled.div`
   border-radius: 3px;
   grid-column: 2/9;
   grid-row: ${({ image }) => image ? '5/6' : '9/10'};
-  box-shadow: 1px 1px 8px gray;
 `;
 
 export const StyledLink = styled(Link)`

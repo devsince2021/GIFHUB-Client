@@ -45,10 +45,10 @@ export default function EditorPage({
 
   function makeVideoLoop(event) {
     const endTime = startTime + duration + 1;
-    if (currentEditingStep === 2) return event.target.play();
     if (!duration) event.target.pause();
     if (Math.round(event.target.currentTime) === endTime) {
       event.target.currentTime = startTime;
+      event.target.play();
     }
   }
 
@@ -83,7 +83,8 @@ export default function EditorPage({
     setIsDownloadModalOpen(!isFinalFileLoading);
     history.push('/')
   }
-  console.log(isFinalFileLoading,'modal')
+
+  console.log(startTime, 'init in page')
   return(
     <>
       <EditorHeader currentEditingStep={currentEditingStep} />

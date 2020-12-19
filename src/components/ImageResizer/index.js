@@ -45,8 +45,6 @@ export default function ImageResizer({
       setIsResizing(true);
       setCurrentResizer(event.target);
     }
-    console.log(event.clientY,'cy')
-    console.log(event.screenY,'sy')
     setPrevX(event.clientX);
     setPrevY(event.clientY);
     setIsMouseUp(!isMouseUp);

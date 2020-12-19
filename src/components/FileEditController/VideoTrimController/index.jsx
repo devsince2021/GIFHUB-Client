@@ -15,13 +15,13 @@ export default function VideoTrimController({
   onSaveDurationStamp,
   onChangeEdtingStep,
 }) {
+
   function getTimeStamp(event) {
     const timeStamp = Number(event.target.value);
     const stampType = event.target.name;
     video.current.play();
 
     if (stampType === 'startTime') {
-      console.log(timeStamp,'1')
       video.current.currentTime = timeStamp;
       onSaveStartTimeStamp(timeStamp);
       return;

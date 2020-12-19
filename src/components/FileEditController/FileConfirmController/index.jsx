@@ -10,6 +10,9 @@ export default function FileConfirmController({
 }) {
 
   function generateOptionText() {
+    if (uploadedFile.content_type.split('/')[1] === 'quicktime') {
+      return 'MOV';
+    }
     return uploadedFile.content_type.split('/')[1].toUpperCase();
   }
 

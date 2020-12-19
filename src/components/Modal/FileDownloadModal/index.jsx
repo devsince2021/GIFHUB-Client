@@ -14,7 +14,6 @@ export default function FileDownloadModal({
     return isLoading ? 'Creating...' : 'Complete!'
   }
 
-  isLoading=false;
   function generateDownloadForm() {
     return (
       <>
