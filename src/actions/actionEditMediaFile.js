@@ -36,7 +36,6 @@ export function initEditingStep() {
 }
 
 export function saveStartTimeStamp(startTime) {
-  console.log(startTime, 'in action')
   return {
     type: SAVE_START_TIME_STAMP,
     payload: startTime,

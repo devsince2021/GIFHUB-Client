@@ -19,7 +19,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     onSaveStartTimeStamp: function(startTime) {
-      console.log(startTime, 'in container')
       dispatch(actionEditMediaFile.saveStartTimeStamp(startTime));
     },
     onSaveDurationStamp: function(duration) {

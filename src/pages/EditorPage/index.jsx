@@ -84,7 +84,6 @@ export default function EditorPage({
     history.push('/')
   }
 
-  console.log(startTime, 'init in page')
   return(
     <>
       <EditorHeader currentEditingStep={currentEditingStep} />
