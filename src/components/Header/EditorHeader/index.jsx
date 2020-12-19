@@ -11,13 +11,12 @@ export default function EditorHeader({ currentEditingStep }) {
   }
 
   function switchTitle() {
-    let title;
     if (!currentEditingStep) {
-      return title = 'Step1. Trim your video!'
+      return 'Step1. Trim your video!'
     } else if (currentEditingStep === 1) {
-      return title = 'Step2. Add your image!'
+      return 'Step2. Add your image!'
     } else {
-      return title = 'Step3. Finish your editing!'
+      return 'Step3. Finish your editing!'
     }
   }
 
