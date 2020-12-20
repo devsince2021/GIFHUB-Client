@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SERVER_URL, mediaFileRoute } from '../constants/http';
+import { SERVER_URL } from '../constants/http';
 
 const config = {
   header: { 'content-type': 'multipart/form-data'}
@@ -8,7 +8,7 @@ const config = {
 export async function uploadMediaFile(mediaFile) {
   try {
     const response = await axios.post(
-      `${SERVER_URL}${mediaFileRoute.ROOT}`,
+      `${SERVER_URL}/mediaFile`,
       mediaFile,
       config,
     );
@@ -33,7 +33,7 @@ export async function createFinalFile(options) {
     const { top, left, width, height } = imageSizeAndPosition;
 
     const url = `
-      http://localhost:4000/mediaFile/${uploadedFile._id}/finalFile?format=${format}&startTime=${startTime}&duration=${duration}&top=${top}&left=${left}&width=${width}&height=${height}
+    ${SERVER_URL}/mediaFile/${uploadedFile._id}/finalFile?format=${format}&startTime=${startTime}&duration=${duration}&top=${top}&left=${left}&width=${width}&height=${height}
     `;
 
     const response = await axios.post(
@@ -50,7 +50,7 @@ export async function createFinalFile(options) {
 
 export async function getAllMediaFile() {
   try {
-    const res = await axios.get('http://www.localhost:4000/mediaFile');
+    const res = await axios.get(`${SERVER_URL}/mediaFile`);
     return res.data.filter((media) => !media.key);
   } catch (err) {
     throw new Error('Error in createFinalFile:', err);
