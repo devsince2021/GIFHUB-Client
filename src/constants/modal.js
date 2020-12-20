@@ -1,4 +1,3 @@
-
 export const title = {
   UPLOAD: 'FILE UPLOAD',
   LOADING: 'Loading..',
