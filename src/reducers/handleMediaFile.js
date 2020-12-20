@@ -7,9 +7,25 @@ import {
   DELETE_UPLOADED_FILE,
   SAVE_SELECTED_FILE,
   DELETE_SELECTED_FILE,
+  GET_ALL_MEIDA_FILE,
+  GET_ALL_MEIDA_FILE_SUCCESS,
+  GET_ALL_MEIDA_FILE_ERROR,
 } from '../constants/actionTypes';
 
 const initialState = reducerUtils.initial();
+
+function getAllMediaFile(state = initialState, action) {
+  switch (action.type) {
+    case   GET_ALL_MEIDA_FILE:
+      return reducerUtils.loading();
+    case GET_ALL_MEIDA_FILE_SUCCESS:
+      return reducerUtils.success(action.payload);
+    case GET_ALL_MEIDA_FILE_ERROR:
+      return 'error';
+    default:
+      return state;
+  }
+}
 
 function uploaded(state = initialState, action) {
   switch (action.type) {
@@ -38,6 +54,7 @@ function selected(state = null, action) {
 }
 
 export default combineReducers({
+  getAllMediaFile,
   selected,
   uploaded,
 });

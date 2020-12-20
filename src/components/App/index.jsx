@@ -1,13 +1,12 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import MainPage from '../../pages/MainPage';
-import EditorPageContainer from '../../containers/EditorPageContainer'
+import { EditorPageContainer, MainPageContainer } from '../../containers';
 
 export default function App() {
 
   return (
     <>
-      <Route path='/' exact component={MainPage} />
+      <Route path='/' exact component={MainPageContainer} />
       <Route path='/create' component={EditorPageContainer} />
     </>
   );

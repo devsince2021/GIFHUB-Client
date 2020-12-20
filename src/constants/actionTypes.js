@@ -26,3 +26,7 @@ export const INIT_START_TIME_STAMP = 'init_start_time_stamp';
 export const INIT_DURATION_STAMP = 'init_duration_stamp';
 export const INIT_IMAGE_SIZE_AND_POSITION = 'init_image_size_and_position';
 export const DELETE_FINAL_FILE = 'delete_final_file';
+
+export const GET_ALL_MEIDA_FILE = 'get_all_media_file';
+export const GET_ALL_MEIDA_FILE_SUCCESS = 'get_all_media_file_success';
+export const GET_ALL_MEIDA_FILE_ERROR = 'get_all_media_file_error';

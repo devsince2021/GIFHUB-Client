@@ -1,30 +1,30 @@
 import { connect } from 'react-redux';
 import MainHeader from '../components/Header/MainHeader';
 import {
-  actionUploadMediaFile,
+  actionHandleMediaFile,
   actionModal,
 } from '../actions';
 
 function mapStateToProps(state) {
   return {
-    uploadedFile: state.uploadMediaFile.uploaded.data,
-    selectedFile: state.uploadMediaFile.selected,
+    uploadedFile: state.handleMediaFile.uploaded.data,
+    selectedFile: state.handleMediaFile.selected,
     isMediaFileModalOpen: state.modal.isMediaFileModalOpen,
     currentEditingStep: state.editMediaFile.currentEditingStep,
-    isLoading: state.uploadMediaFile.uploaded.loading,
+    isLoading: state.handleMediaFile.uploaded.loading,
   }
 }
 
 function mapDispathToProps(dispatch) {
   return {
     onSaveUploadedFile: function(mediaFile) {
-      return dispatch(actionUploadMediaFile.saveUploadedFile(mediaFile));
+      return dispatch(actionHandleMediaFile.saveUploadedFile(mediaFile));
     },
     onSaveSeletedFile: function(mediaFile) {
-      return dispatch(actionUploadMediaFile.saveSelectedFile(mediaFile));
+      return dispatch(actionHandleMediaFile.saveSelectedFile(mediaFile));
     },
     onDeleteSelectedFile: function() {
-      return dispatch(actionUploadMediaFile.deleteSelectedFile());
+      return dispatch(actionHandleMediaFile.deleteSelectedFile());
     },
     onToggleMediaFileModal: function() {
       return dispatch(actionModal.toggleMediaFileModal());

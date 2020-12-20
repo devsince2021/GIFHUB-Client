@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import EditorPage from '../pages/EditorPage';
-import { actionEditMediaFile, actionUploadMediaFile } from '../actions';
+import { actionEditMediaFile, actionHandleMediaFile } from '../actions';
 
 function mapStateToProps(state) {
   return {
-    uploadedFile: state.uploadMediaFile.uploaded.data,
-    selectedFile: state.uploadMediaFile.selected,
+    uploadedFile: state.handleMediaFile.uploaded.data,
+    selectedFile: state.handleMediaFile.selected,
     currentEditingStep: state.editMediaFile.changeEditingStep,
     startTime: state.editMediaFile.saveStartTimeStamp,
     duration: state.editMediaFile.saveDurationStamp,
@@ -30,7 +30,7 @@ function mapDispatchToProps(dispatch) {
         : dispatch(actionEditMediaFile.previousEditingStep());
     },
     onSaveSeletedFile: function(mediaFile) {
-      return dispatch(actionUploadMediaFile.saveSelectedFile(mediaFile));
+      return dispatch(actionHandleMediaFile.saveSelectedFile(mediaFile));
     },
     onSaveImageSizeAndPosition: function(sizeAndPosition) {
       return dispatch(actionEditMediaFile.saveImageSizeAndPosition(sizeAndPosition))
@@ -42,8 +42,8 @@ function mapDispatchToProps(dispatch) {
       return dispatch(actionEditMediaFile.createFinalFile(options));
     },
     onInitialize: function() {
-      dispatch(actionUploadMediaFile.deleteSelectedFile());
-      dispatch(actionUploadMediaFile.deleteUploadedFile());
+      dispatch(actionHandleMediaFile.deleteSelectedFile());
+      dispatch(actionHandleMediaFile.deleteUploadedFile());
       dispatch(actionEditMediaFile.deleteFinalFile());
       dispatch(actionEditMediaFile.initImageSizeAndPosition());
       dispatch(actionEditMediaFile.initDurationStamp());

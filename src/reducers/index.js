@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import uploadMediaFile from './uploadMediaFile';
+import handleMediaFile from './handleMediaFile';
 import editMediaFile from './editMediaFile';
 import modal from './modal';
 
 export default combineReducers({
   editMediaFile,
-  uploadMediaFile,
+  handleMediaFile,
   modal,
 });

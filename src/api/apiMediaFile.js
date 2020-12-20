@@ -16,7 +16,7 @@ export async function uploadMediaFile(mediaFile) {
     return response.data;
 
   } catch (err) {
-    throw new Error('Error in uploadMediaFile:', err)
+    throw new Error('Error in uploadMediaFile:', err);
   }
 }
 
@@ -44,6 +44,15 @@ export async function createFinalFile(options) {
 
     return response.data;
   } catch (err) {
-    throw new Error('Error in createFinalFile:', err)
+    throw new Error('Error in createFinalFile:', err);
+  }
+}
+
+export async function getAllMediaFile() {
+  try {
+    const res = await axios.get('http://www.localhost:4000/mediaFile');
+    return res.data.filter((media) => !media.key);
+  } catch (err) {
+    throw new Error('Error in createFinalFile:', err);
   }
 }
