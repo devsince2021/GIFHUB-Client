@@ -17,7 +17,7 @@ import {
   DELETE_FINAL_FILE,
 } from '../constants/actionTypes';
 
-function changeEditingStep(state = 0, action) {
+const changeEditingStep = (state = 0, action) => {
   switch (action.type) {
     case NEXT_EDITING_STEP:
       return state + 1;
@@ -30,7 +30,7 @@ function changeEditingStep(state = 0, action) {
   }
 };
 
-function saveStartTimeStamp(state = 0, action) {
+const saveStartTimeStamp = (state = 0, action) => {
   switch (action.type) {
     case SAVE_START_TIME_STAMP:
       return action.payload;
@@ -39,9 +39,9 @@ function saveStartTimeStamp(state = 0, action) {
     default:
       return state;
   }
-}
+};
 
-function saveDurationStamp(state = 0, action) {
+const saveDurationStamp = (state = 0, action) => {
   switch (action.type) {
     case SAVE_DURATION_STAMP:
       return action.payload;
@@ -50,7 +50,7 @@ function saveDurationStamp(state = 0, action) {
     default:
       return state;
   }
-}
+};
 
 const initSizeAndPosition = {
   left: `${250 - 52}`,
@@ -59,7 +59,7 @@ const initSizeAndPosition = {
   height: '50',
 };
 
-function saveImageSizeAndPosition(state = initSizeAndPosition, action) {
+const saveImageSizeAndPosition = (state = initSizeAndPosition, action) => {
   switch (action.type) {
     case SAVE_IMAGE_SIZE_AND_POSITION:
       return {...action.payload};
@@ -68,20 +68,20 @@ function saveImageSizeAndPosition(state = initSizeAndPosition, action) {
     default:
       return state;
   }
-}
+};
 
-function saveFinalFileFormat(state = 'gif', action) {
+const saveFinalFileFormat = (state = 'gif', action) => {
   switch(action.type) {
     case SAVE_FINAL_FILE_FORMAT:
       return action.payload;
     default:
       return state;
   }
-}
+};
 
 const initialState = reducerUtils.initial();
 
-function createFinalFile(state = initialState, action) {
+const createFinalFile = (state = initialState, action) => {
   switch(action.type) {
     case CREATE_FINAL_FILE:
       return reducerUtils.loading();
@@ -94,7 +94,7 @@ function createFinalFile(state = initialState, action) {
     default:
       return state;
   }
-}
+};
 
 export default combineReducers({
   saveFinalFileFormat,

@@ -2,13 +2,13 @@ import React from 'react';
 import Modal from '..';
 import { CloseButton, Title } from './styled';
 
-export default function FileUploadModal({
+const FileUploadModal = ({
   isOpen,
   onCloseModal,
   title,
   children,
   decoration,
-}) {
+}) => {
   return(
     <Modal
       isOpen={isOpen}
@@ -22,4 +22,6 @@ export default function FileUploadModal({
       {children}
     </Modal>
   );
-}
+};
+
+export default FileUploadModal;

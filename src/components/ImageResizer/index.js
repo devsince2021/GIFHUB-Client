@@ -9,11 +9,11 @@ import {
 } from './styled';
 import { imageSizeAndPositionHandler } from '../../utils';
 
-export default function ImageResizer({
+ const ImageResizer = ({
   onMouseUp,
   imageFile,
   onToggleResizer,
-}) {
+}) => {
   const imageHolder = useRef(null);
 
   const [prevX, setPrevX] = useState(0);
@@ -31,15 +31,14 @@ export default function ImageResizer({
     if (!imageFile?.type.includes('image')) return;
     const reader = new FileReader();
 
-    reader.addEventListener('load', function () {
+    reader.addEventListener('load', () => {
       setImageUrl(reader.result);
     }, false);
 
     reader.readAsDataURL(imageFile);
-  }, [imageFile])
+  }, [imageFile]);
 
-
-  function handleMouseDown(event) {
+  const handleMouseDown = event => {
     if (!onToggleResizer()) return;
     if (event.target.classList.contains('resizer')) {
       setIsResizing(true);
@@ -48,9 +47,9 @@ export default function ImageResizer({
     setPrevX(event.clientX);
     setPrevY(event.clientY);
     setIsMouseUp(!isMouseUp);
-  }
+  };
 
-  function handleMouseMove(event) {
+  const handleMouseMove = event => {
     if (!onToggleResizer()) return;
     if(isMouseUp) return;
     setNewX(prevX - event.clientX);
@@ -64,9 +63,9 @@ export default function ImageResizer({
 
     setPrevX(event.clientX);
     setPrevY(event.clientY);
-  }
+  };
 
-  function handleMouseUp() {
+  const handleMouseUp = () => {
     if (!onToggleResizer()) return;
     setIsMouseUp(true);
 
@@ -77,7 +76,7 @@ export default function ImageResizer({
       height: imageHolder.current.style.height.split('px')[0] || '50',
     });
     isResizing && setIsResizing(false);
-  }
+  };
 
   return(
     <ResizingBoard
@@ -101,4 +100,6 @@ export default function ImageResizer({
       </ImageHolder>
     </ResizingBoard>
   );
-}
+};
+
+export default ImageResizer;

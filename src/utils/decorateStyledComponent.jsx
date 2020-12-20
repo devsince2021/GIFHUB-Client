@@ -1,5 +1,4 @@
-
-export default function decorateStyledComponent( Component, props, forwardedRef ) {
+const decorateStyledComponent = (Component, props, forwardedRef) => {
   const { children, ...rest } = props;
 
   return (
@@ -8,3 +7,5 @@ export default function decorateStyledComponent( Component, props, forwardedRef 
     </Component>
   );
 };
+
+export default decorateStyledComponent;

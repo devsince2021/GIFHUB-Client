@@ -2,7 +2,9 @@ import styled, { css } from 'styled-components';
 import { background } from '../../constants/image';
 
 export const Wrapper = styled.div`
-  background-image: ${({ simple }) => simple ? 'none' : `url(${background.MAIN_HEADER})`};
+  background-image: ${
+    ({ simple }) => simple ? 'none' : `url(${background.MAIN_HEADER})`
+  };
   position: fixed;
   background-color: ${({ theme })=> theme.palette.BLACK};
   width: 100%;

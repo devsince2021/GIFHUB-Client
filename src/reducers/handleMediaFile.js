@@ -14,7 +14,7 @@ import {
 
 const initialState = reducerUtils.initial();
 
-function getAllMediaFile(state = initialState, action) {
+const getAllMediaFile = (state = initialState, action) => {
   switch (action.type) {
     case   GET_ALL_MEIDA_FILE:
       return reducerUtils.loading();
@@ -25,9 +25,9 @@ function getAllMediaFile(state = initialState, action) {
     default:
       return state;
   }
-}
+};
 
-function uploaded(state = initialState, action) {
+const uploaded = (state = initialState, action) => {
   switch (action.type) {
     case SAVE_UPLOADED_FILE:
       return reducerUtils.loading();
@@ -42,7 +42,7 @@ function uploaded(state = initialState, action) {
   }
 };
 
-function selected(state = null, action) {
+const selected = (state = null, action) => {
   switch (action.type) {
     case SAVE_SELECTED_FILE:
       return action.payload;
@@ -51,7 +51,7 @@ function selected(state = null, action) {
     default:
       return state;
   }
-}
+};
 
 export default combineReducers({
   getAllMediaFile,

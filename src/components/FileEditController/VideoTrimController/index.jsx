@@ -7,16 +7,15 @@ import {
 } from './styled';
 import { TimeArrowInput, TimeRangeInput } from '../../Input';
 
-export default function VideoTrimController({
+const VideoTrimController = ({
   video,
   startTime,
   onSaveStartTimeStamp,
   duration,
   onSaveDurationStamp,
   onChangeEdtingStep,
-}) {
-
-  function getTimeStamp(event) {
+}) => {
+  const getTimeStamp = event => {
     const timeStamp = Number(event.target.value);
     const stampType = event.target.name;
     video.current.play();
@@ -28,11 +27,11 @@ export default function VideoTrimController({
     }
     video.current.currentTime = startTime;
     onSaveDurationStamp(timeStamp);
-  }
+  };
 
-  function nextButtonClickHandler() {
+  const nextButtonClickHandler = () => {
     onChangeEdtingStep('next');
-  }
+  };
 
   return(
     <>
@@ -93,4 +92,6 @@ export default function VideoTrimController({
       </StyledLink>
     </>
   );
-}
+};
+
+export default VideoTrimController;

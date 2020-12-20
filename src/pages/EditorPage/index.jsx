@@ -10,7 +10,7 @@ import {
 import ImageResizer from '../../components/ImageResizer';
 import FileDownloadModal from '../../components/Modal/FileDownloadModal';
 
-export default function EditorPage({
+const EditorPage = ({
   onSaveStartTimeStamp,
   onSaveDurationStamp,
   onChangeEdtingStep,
@@ -28,7 +28,7 @@ export default function EditorPage({
   isFinalFileLoading,
   finalFile,
   onInitialize,
-}) {
+}) => {
   const history = useHistory();
   if (!uploadedFile) history.push('/');
 
@@ -37,30 +37,30 @@ export default function EditorPage({
   const [isImageSubmitted, setIsImageSubmitted] = useState(false);
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
 
-  function togglePlay(event) {
+  const togglePlay = event => {
     const method = isPaused ? 'play' : 'pause';
     event.target[method]();
     setIsPaused(!isPaused);
-  }
+  };
 
-  function makeVideoLoop(event) {
+  const makeVideoLoop = event => {
     const endTime = startTime + duration + 1;
     if (!duration) event.target.pause();
     if (Math.round(event.target.currentTime) === endTime) {
       event.target.currentTime = startTime;
       event.target.play();
     }
-  }
+  };
 
-  function saveImageSizeAndPosition(sizeAndPosition) {
-    onSaveImageSizeAndPosition(sizeAndPosition)
-  }
+  const saveImageSizeAndPosition = sizeAndPosition => {
+    onSaveImageSizeAndPosition(sizeAndPosition);
+  };
 
-  function toggleImageModification() {
-    return currentEditingStep !== 2;
-  }
+  const toggleImageModification = () => (
+    currentEditingStep !== 2
+  );
 
-  function loadEditedMediaFile() {
+  const loadEditedMediaFile = () => {
     const imageFile = new FormData();
     imageFile.append('image', selectedFile);
 
@@ -74,15 +74,15 @@ export default function EditorPage({
     };
     onCreateFinalFile(options);
     setIsDownloadModalOpen(!isDownloadModalOpen);
-  }
+  };
 
-  function handleClickDownloadModalButton() {
+  const handleClickDownloadModalButton = () => {
     const result = window.confirm('Do you want leave?');
     if (!result) return;
     onInitialize();
     setIsDownloadModalOpen(!isFinalFileLoading);
-    history.push('/')
-  }
+    history.push('/');
+  };
 
   return(
     <>
@@ -145,4 +145,6 @@ export default function EditorPage({
       </EditorContent>
     </>
   );
-}
+};
+
+export default EditorPage;

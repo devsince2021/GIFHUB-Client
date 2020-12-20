@@ -3,26 +3,25 @@ import { Description, ControllerLabel } from './styled';
 import { EditFinishButton } from '../../Button';
 import ToggleSlider from '../../ToggleSlider';
 
-export default function FileConfirmController({
+export const FileConfirmController = ({
   uploadedFile,
   onSaveFinalFileFormat,
   onClick
-}) {
-
-  function generateOptionText() {
+}) => {
+  const generateOptionText = () => {
     if (uploadedFile.content_type.split('/')[1] === 'quicktime') {
       return 'MOV';
     }
     return uploadedFile.content_type.split('/')[1].toUpperCase();
-  }
+  };
+  
+  const sliderClickHandler = format => {
+    onSaveFinalFileFormat(format);
+  };
 
-  function sliderClickHandler(format) {
-    onSaveFinalFileFormat(format)
-  }
-
-  function finishButtonClickHandler() {
-    onClick()
-  }
+  const finishButtonClickHandler = () => {
+    onClick();
+  };
 
   return(
     <>
@@ -50,4 +49,6 @@ export default function FileConfirmController({
       </EditFinishButton>
     </>
   );
-}
+};
+
+export default FileConfirmController;

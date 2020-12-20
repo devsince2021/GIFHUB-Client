@@ -13,7 +13,9 @@ export const Description = styled.div`
   color: ${({ theme }) => theme.palette.WHITE};
   text-align: center;
   margin-left: 1%;
-  font-size: ${({ theme, download }) => download ? theme.fontSize.SMALL : '1rem'};;
+  font-size: ${
+    ({ theme, download }) => download ? theme.fontSize.SMALL : '1rem'
+  };
   grid-column: ${({ download }) => download ? '2/12' : '1/13'};
   grid-row: ${({ download }) => download ? '5/6' : '7/8'};
 `;
@@ -31,4 +33,4 @@ export const StyeldAnchor = styled.a`
   grid-column: 7/10;
   grid-row: 8/10;
   cursor: pointer;
-`
+`;

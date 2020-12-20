@@ -1,4 +1,4 @@
-export default function omitLongFileName(Component, text) {
+const omitLongFileName = (Component, text) => {
   switch (true) {
     case (text.includes('Select')):
       return(
@@ -26,4 +26,6 @@ export default function omitLongFileName(Component, text) {
         </Component>
       );
   }
-}
+};
+
+export default omitLongFileName;

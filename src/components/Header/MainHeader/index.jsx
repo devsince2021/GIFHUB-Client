@@ -8,7 +8,7 @@ import FileUploadModal from '../../Modal/FileUploadModal';
 import { FileUploadContent, LoadingContent } from '../../ModalContent';
 import { title, DO_YOU_WANT_LEAVE } from '../../../constants/modal';
 
-export default function MainHeader({
+const MainHeader = ({
   onToggleMediaFileModal,
   onSaveUploadedFile,
   onDeleteSelectedFile,
@@ -17,26 +17,26 @@ export default function MainHeader({
   uploadedFile,
   isMediaFileModalOpen,
   isLoading,
-}) {
+}) => {
   const history = useHistory();
 
   useEffect(() => {
     if (!uploadedFile || isLoading) return;
     moveTrimVideoPage();
-  }, [uploadedFile, isLoading])
+  }, [uploadedFile, isLoading]);
 
-  function toggleModal() {
+  const toggleModal = () => {
     if (selectedFile) {
       if (!window.confirm(DO_YOU_WANT_LEAVE)) return;
       onDeleteSelectedFile();
     }
     onToggleMediaFileModal();
-  }
+  };
 
-  function moveTrimVideoPage() {
+  const moveTrimVideoPage = () => {
     onToggleMediaFileModal();
     history.push('/create/trim-video');
-  }
+  };
 
   return (
     <Header>
@@ -71,3 +71,5 @@ export default function MainHeader({
     </Header>
   );
 };
+
+export default MainHeader;

@@ -55,7 +55,9 @@ export const StyledEditFinishButton = styled(StyledButton)`
 
 export const StyledCancelButton = styled(StyledButton)`
   border: ${({ theme }) => `1px solid ${theme.palette.GRAY}`};
-  background-color: ${({ download, theme }) => download ? theme.palette.GREEN : 'tarnsparent'};
+  background-color: ${
+    ({ download, theme }) => download ? theme.palette.GREEN : 'tarnsparent'
+  };
   grid-column: ${({ download }) => download ? '7/10' : '4/7'};
   grid-row: 8/10;
 `;

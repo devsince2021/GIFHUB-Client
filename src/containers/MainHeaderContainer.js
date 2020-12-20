@@ -5,31 +5,27 @@ import {
   actionModal,
 } from '../actions';
 
-function mapStateToProps(state) {
-  return {
-    uploadedFile: state.handleMediaFile.uploaded.data,
-    selectedFile: state.handleMediaFile.selected,
-    isMediaFileModalOpen: state.modal.isMediaFileModalOpen,
-    currentEditingStep: state.editMediaFile.currentEditingStep,
-    isLoading: state.handleMediaFile.uploaded.loading,
-  }
-}
+const mapStateToProps = state => ({
+  uploadedFile: state.handleMediaFile.uploaded.data,
+  selectedFile: state.handleMediaFile.selected,
+  isMediaFileModalOpen: state.modal.isMediaFileModalOpen,
+  currentEditingStep: state.editMediaFile.currentEditingStep,
+  isLoading: state.handleMediaFile.uploaded.loading,
+});
 
-function mapDispathToProps(dispatch) {
-  return {
-    onSaveUploadedFile: function(mediaFile) {
-      return dispatch(actionHandleMediaFile.saveUploadedFile(mediaFile));
-    },
-    onSaveSeletedFile: function(mediaFile) {
-      return dispatch(actionHandleMediaFile.saveSelectedFile(mediaFile));
-    },
-    onDeleteSelectedFile: function() {
-      return dispatch(actionHandleMediaFile.deleteSelectedFile());
-    },
-    onToggleMediaFileModal: function() {
-      return dispatch(actionModal.toggleMediaFileModal());
-    },
-  };
-}
+const mapDispathToProps = dispatch => ({
+  onSaveUploadedFile: mediaFile => (
+    dispatch(actionHandleMediaFile.saveUploadedFile(mediaFile))
+  ),
+  onSaveSeletedFile: mediaFile => (
+    dispatch(actionHandleMediaFile.saveSelectedFile(mediaFile))
+  ),
+  onDeleteSelectedFile: () => (
+    dispatch(actionHandleMediaFile.deleteSelectedFile())
+  ),
+  onToggleMediaFileModal: () => (
+    dispatch(actionModal.toggleMediaFileModal())
+  ),
+});
 
 export default connect(mapStateToProps,mapDispathToProps)(MainHeader);

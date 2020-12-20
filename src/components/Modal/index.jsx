@@ -7,7 +7,7 @@ import {
   WackyTubeMan,
 } from './styled';
 
-export default function Modal({
+const Modal = ({
   isOpen,
   children,
   onCloseModal,
@@ -16,17 +16,15 @@ export default function Modal({
   height,
   top,
   left,
-}) {
+}) => {
   if (!isOpen) return null;
 
-  function decorateModal() {
-    return (
-      <>
-        <WackyTubeMan direction='left'/>
-        <WackyTubeMan />
-      </>
-    );
-  }
+  const decorateModal = () => (
+    <>
+      <WackyTubeMan direction='left'/>
+      <WackyTubeMan />
+    </>
+  );
 
   return createPortal(
     <>
@@ -47,3 +45,5 @@ export default function Modal({
     document.getElementById('portal')
   );
 };
+
+export default Modal;

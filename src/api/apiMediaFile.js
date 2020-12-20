@@ -3,9 +3,9 @@ import { SERVER_URL } from '../constants/http';
 
 const config = {
   header: { 'content-type': 'multipart/form-data'}
-}
+};
 
-export async function uploadMediaFile(mediaFile) {
+export const uploadMediaFile = async mediaFile => {
   try {
     const response = await axios.post(
       `${SERVER_URL}/mediaFile`,
@@ -18,9 +18,9 @@ export async function uploadMediaFile(mediaFile) {
   } catch (err) {
     throw new Error('Error in uploadMediaFile:', err);
   }
-}
+};
 
-export async function createFinalFile(options) {
+export const createFinalFile = async options => {
   try {
     const {
       uploadedFile,
@@ -46,13 +46,13 @@ export async function createFinalFile(options) {
   } catch (err) {
     throw new Error('Error in createFinalFile:', err);
   }
-}
+};
 
-export async function getAllMediaFile() {
+export const getAllMediaFile = async () => {
   try {
     const res = await axios.get(`${SERVER_URL}/mediaFile`);
     return res.data.filter((media) => !media.key);
   } catch (err) {
     throw new Error('Error in createFinalFile:', err);
   }
-}
+};

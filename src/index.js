@@ -7,8 +7,8 @@ import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import  logger from 'redux-logger';
 import { ThemeProvider } from 'styled-components';
-import { GlobalStyle } from './styled.js'
-import { theme } from './shared/theme'
+import { GlobalStyle } from './styled.js';
+import { theme } from './shared/theme';
 import AppContainer from './containers/AppContainer';
 
 import AppReducer from './reducers';

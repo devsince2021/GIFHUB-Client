@@ -1,10 +1,10 @@
 import React from 'react';
 import { Wrapper } from './styled';
 
-export default function Header({ children, ...rest }) {
-  return(
-    <Wrapper {...rest}>
-      {children}
-    </Wrapper>
-  );
-}
+const Header = ({ children, ...rest }) => (
+  <Wrapper {...rest}>
+    {children}
+  </Wrapper>
+);
+
+export default Header;

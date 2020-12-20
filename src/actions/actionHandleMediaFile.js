@@ -11,21 +11,15 @@ import {
 export const saveUploadedFile = createPromiseThunk(SAVE_UPLOADED_FILE, api.uploadMediaFile);
 export const getAllMediaFile = createPromiseThunk(GET_ALL_MEIDA_FILE, api.getAllMediaFile);
 
-export const deleteUploadedFile = function() {
-  return {
-    type: DELETE_UPLOADED_FILE,
-  };
-};
+export const deleteUploadedFile = () => ({
+  type: DELETE_UPLOADED_FILE,
+});
 
-export const saveSelectedFile = function(payload) {
-  return {
-    type: SAVE_SELECTED_FILE,
-    payload,
-  };
-};
+export const saveSelectedFile = payload => ({
+  type: SAVE_SELECTED_FILE,
+  payload,
+});
 
-export const deleteSelectedFile = function() {
-  return {
-    type: DELETE_SELECTED_FILE,
-  };
-}
+export const deleteSelectedFile = () => ({
+  type: DELETE_SELECTED_FILE,
+});

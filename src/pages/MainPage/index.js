@@ -2,11 +2,15 @@ import React, { useEffect } from 'react';
 import MainHeaderContainer from '../../containers/MainHeaderContainer';
 import { MainContent } from './styled';
 
-export default function MainPage({ onLoadMediaFile, mediaFileList, isMediaListLoading }) {
+const MainPage = ({
+  onLoadMediaFile,
+  mediaFileList,
+  isMediaListLoading
+}) => {
 
   useEffect(() => {
     onLoadMediaFile();
-  }, [])
+  }, []);
 
   return (
     <>
@@ -21,4 +25,6 @@ export default function MainPage({ onLoadMediaFile, mediaFileList, isMediaListLo
       </MainContent>
     </>
   );
-}
+};
+
+export default MainPage;

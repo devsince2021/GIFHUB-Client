@@ -8,13 +8,13 @@ import {
 } from './styled';
 import FileUploader from '../../FileUploader';
 
-export default function ImageAddController({
+const ImageAddController = ({
   onSaveSeletedFile,
   selectedFile,
   onChangeEdtingStep,
   setIsImageSubmitted,
-}) {
-  const [placeholder , setPlaceholder] = useState('')
+}) => {
+  const [placeholder , setPlaceholder] = useState('');
 
   useEffect(() => {
     selectedFile
@@ -22,18 +22,18 @@ export default function ImageAddController({
     : setPlaceholder('Select your images..');
   }, [selectedFile]);
 
-  function saveSelectedFile(image) {
+  const saveSelectedFile = image => {
     onSaveSeletedFile(image);
-  }
+  };
 
-  function onImageSubmit() {
+  const onImageSubmit = () => {
     setIsImageSubmitted(prev => !prev);
     setPlaceholder('Select your images..');
-  }
+  };
 
-  function nextButtonClickHandler() {
+  const nextButtonClickHandler = () => {
     onChangeEdtingStep('next');
-  }
+  };
 
   return(
     <>
@@ -63,4 +63,6 @@ export default function ImageAddController({
       </StyledLink>
     </>
   );
-}
+};
+
+export default ImageAddController;

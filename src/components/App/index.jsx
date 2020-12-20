@@ -2,12 +2,11 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import { EditorPageContainer, MainPageContainer } from '../../containers';
 
-export default function App() {
+const App = () => (
+  <>
+    <Route path='/' exact component={MainPageContainer} />
+    <Route path='/create' component={EditorPageContainer} />
+  </>
+);
 
-  return (
-    <>
-      <Route path='/' exact component={MainPageContainer} />
-      <Route path='/create' component={EditorPageContainer} />
-    </>
-  );
-};
+export default App;

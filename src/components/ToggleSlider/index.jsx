@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { Wrapper, Left, Right } from './styled';
 
-export default function ToggleSlider({
+const ToggleSlider = ({
   onClick,
   optionText,
-}) {
+}) => {
   const [isLeft, setIsLeft] = useState(false);
 
-  function clickHandler(event) {
+  const clickHandler = event => {
     event.target.classList.contains('left')
       ? setIsLeft(true)
       : setIsLeft(false);
     onClick(event.target.innerText.toLowerCase());
-  }
+  };
 
   return(
     <Wrapper>
@@ -32,3 +32,5 @@ export default function ToggleSlider({
     </Wrapper>
   );
 };
+
+export default ToggleSlider;

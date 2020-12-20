@@ -3,37 +3,30 @@ import Modal from '..';
 import { Title, Description, StyeldAnchor } from './styled';
 import { CancelButton } from '../../Button';
 
-export default function FileDownloadModal({
+const FileDownloadModal = ({
   isOpen,
   isLoading,
   onClick,
   downloadUrl,
-}) {
-
-  function generateTitle() {
-    return isLoading ? 'Creating...' : 'Complete!'
-  }
-
-  function generateDownloadForm() {
-    return (
-      <>
-        <Description download>
-          Please click the download button to get your file!!
-        </Description>
-        <StyeldAnchor
-          href={downloadUrl}
-          download
-        >
-          Download
-        </StyeldAnchor>
-        <CancelButton
-          onClick={onClick}
-        >
-          cancel
-        </CancelButton>
-      </>
-    );
-  }
+}) => {
+  const generateDownloadForm = () => (
+    <>
+      <Description download>
+        Please click the download button to get your file!!
+      </Description>
+      <StyeldAnchor
+        href={downloadUrl}
+        download
+      >
+        Download
+      </StyeldAnchor>
+      <CancelButton
+        onClick={onClick}
+      >
+        cancel
+      </CancelButton>
+    </>
+  );
 
   return(
     <Modal
@@ -45,7 +38,7 @@ export default function FileDownloadModal({
       left='28%'
     >
       <Title>
-        {generateTitle()}
+        {isLoading ? 'Creating...' : 'Complete!'}
       </Title>
       {
         isLoading
@@ -57,4 +50,6 @@ export default function FileDownloadModal({
       }
     </Modal>
   );
-}
+};
+
+export default FileDownloadModal;

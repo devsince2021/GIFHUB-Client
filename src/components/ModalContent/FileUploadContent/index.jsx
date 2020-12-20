@@ -4,29 +4,28 @@ import { Description, Notification } from './styled';
 import { DESCRIPTION, NOTIFICATION } from '../../../constants/modal';
 import { validateFileSize } from '../../../utils';
 
-export default function FileUploadContent({
+const FileUploadContent = ({
   onSaveUploadedFile,
   onSaveSeletedFile,
   onDeleteSelectedFile,
   selectedFile,
-}) {
-
-  function validateAndSaveSelectedFile(file) {
+}) => {
+  const validateAndSaveSelectedFile = file => {
     if (!file) return;
-    const isValidSize = validateFileSize(file);
+      const isValidSize = validateFileSize(file);
     if (isValidSize) onSaveSeletedFile(file);
-  }
+  };
 
   const inputPlaceholder = selectedFile
     ? selectedFile.name.toLowerCase()
     : 'Select your files..';
 
-  async function createFormDataAndSaveUploadedFile() {
+  const createFormDataAndSaveUploadedFile = async () => {
     const mediaFile = new FormData();
     mediaFile.append('mediaFile', selectedFile);
     onSaveUploadedFile(mediaFile);
     onDeleteSelectedFile();
-  }
+  };
 
 return (
   <>
@@ -46,3 +45,5 @@ return (
   </>
   );
 };
+
+export default FileUploadContent;
