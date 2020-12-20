@@ -17,8 +17,6 @@ export const ImageHolder = styled.div`
   background-repeat: no-repeat;
   width: 50px;
   height: 50px;
-  /* top: 128px;
-  left: 52px; */
   top: 350px;
   left: 250px;
 `;

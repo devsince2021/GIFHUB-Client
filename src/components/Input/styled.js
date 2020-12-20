@@ -31,8 +31,8 @@ export const StyledTimeRangeInput = styled.input`
      width: 20px;
      height: 50px;
      border-radius: 3px;
-     border:1px solid gray;
-     background-color: blanchedalmond;
+     border: ${({ theme }) => `1px solid ${theme.palette.GRAY}`};
+     background-color: ${({ theme }) => theme.palette.ALMOND};
   }
 `;
 
@@ -44,12 +44,12 @@ export const StyledTimeArrowInput = styled.input`
   font-size: ${({ theme }) => theme.fontSize.SMALL};
   border-radius: 3px;
   grid-column: 10/12;
-  grid-row: ${({ startTime }) => startTime ? '4/5' : '8/9'}};
+  grid-row: ${({ startTime }) => startTime ? '4/5' : '8/9'};
 
   &
   ::-webkit-outer-spin-button,
   ::-webkit-inner-spin-button {
     height: 30px;
-    opacity: 1
+    opacity: 1;
   }
 `;

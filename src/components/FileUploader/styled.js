@@ -7,7 +7,6 @@ export const FileUploadForm = styled.form`
   border-radius: 4px;
   grid-column: 4/10;
   grid-row: 7/9;
-
   display: grid;
   grid-template-columns: repeat(6, 1fr);
 `;
@@ -24,8 +23,7 @@ export const FileSelectIcon = styled.div`
 
 export const SelectedFileName = styled.div`
   color: ${({ theme }) => theme.palette.BLACK};
-  font-size: ${({ theme, size }) => theme.fontSize[size] || '1rem'};
-
+  font-size: ${({ theme, size }) => theme.fontSize[size] || theme.fontSize.MEDIUM};
   margin-left: 8px;
   align-self: center;
   grid-column: 2/6;

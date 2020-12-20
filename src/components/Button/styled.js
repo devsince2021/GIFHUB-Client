@@ -3,7 +3,7 @@ import { icon } from '../../constants/image';
 
 export const StyledButton = styled.button`
   background-color: transparent;
-  color: ${({theme}) => theme.palette.WHITE};
+  color: ${({ theme }) => theme.palette.WHITE};
   border: none;
   border-radius: 3px;
   outline: none;
@@ -14,7 +14,7 @@ export const StyledButton = styled.button`
 `;
 
 export const StyledSearchIconButton = styled(StyledButton)`
-  background-color: ${({theme}) => theme.palette.YELLOW};
+  background-color: ${({ theme }) => theme.palette.YELLOW};
   background-image: url(${icon.SEARCH});
   border-radius: 0 3px 3px 0;
 `;
@@ -27,13 +27,13 @@ export const StyledCreateIconButton = styled(StyledButton)`
 `;
 
 export const StyledModalCloseButton = styled(StyledButton)`
-  font-size: 1.1rem;
+  font-size: ${({ theme }) => theme.fontSize.MEDIUM};
   transform: rotate(45deg);
   grid-column: 12/13;
 `;
 
 export const StyledFileUploadIconButton = styled(StyledButton)`
-  background-color: ${({theme}) => theme.palette.WHITE};
+  background-color: ${({ theme }) => theme.palette.WHITE};
   background-image: url(${icon.FILE_SUBMIT_INTPUT});
   background-size: contain;
   background-repeat: no-repeat;
@@ -51,7 +51,7 @@ export const StyledEditFinishButton = styled(StyledButton)`
   background-color: ${({ theme }) => theme.palette.YELLOW};
   color: ${({ theme }) => theme.palette.WHITE};
   text-decoration: none;
-  font-size: 1rem;
+  font-size: ${({ theme }) => theme.fontSize.MEDIUM};
   text-align: center;
   padding-top: 3px;
   border-radius: 3px;
@@ -60,8 +60,8 @@ export const StyledEditFinishButton = styled(StyledButton)`
 `;
 
 export const StyledCancelButton = styled(StyledButton)`
-  border: 1px solid gray;
-  background-color: ${({ download }) => download ? 'green' : 'tarnsparent'};
+  border: ${({ theme }) => `1px solid ${theme.palette.GRAY}`};
+  background-color: ${({ download, theme }) => download ? theme.palette.GREEN : 'tarnsparent'};
   grid-column: ${({ download }) => download ? '7/10' : '4/7'};
   grid-row: 8/10;
 `;

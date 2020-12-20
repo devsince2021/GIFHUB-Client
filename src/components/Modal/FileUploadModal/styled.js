@@ -7,7 +7,7 @@ margin-left: 18px;
 border: none;
 outline: none;
 cursor: pointer;
-font-size: 1.1rem;
+font-size: ${({ theme }) => theme.fontSize.MIDEUM};
 transform: rotate(45deg);
 grid-column: 12/13;
 `;

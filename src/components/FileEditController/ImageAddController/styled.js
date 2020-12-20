@@ -9,7 +9,7 @@ export const Description = styled.div`
 `;
 
 export const ControllerLabel = styled.div`
-  font-size: 1rem;
+  font-size: ${({ theme }) => theme.fontSize.MEDIUM};
   width: ${({ width }) => `${100 * width}%`};
   grid-column: 2/6;
   grid-row: ${({ image }) => image ? '4/5' : '8/9'};
@@ -26,7 +26,7 @@ export const StyledLink = styled(Link)`
   background-color: ${({ theme }) => theme.palette.YELLOW};
   color: ${({ theme }) => theme.palette.WHITE};
   text-decoration: none;
-  font-size: 1rem;
+  font-size: ${({ theme }) => theme.fontSize.MEDIUM};
   text-align: center;
   padding-top: 3px;
   border-radius: 3px;

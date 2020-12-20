@@ -9,7 +9,9 @@ export const Wrapper = styled.div`
 `;
 
 export const Left = styled.div`
-  background-color: ${({ theme, clicked }) => clicked ? theme.palette.ORANGE : 'gray'};
+  background-color: ${
+    ({ theme, clicked }) => clicked ? theme.palette.ORANGE : theme.palette.GRAY
+  };
   transition: all 0.3s ease;
   text-align: center;
   padding: 8px 5px 8px 5px;
@@ -19,11 +21,13 @@ export const Left = styled.div`
 `;
 
 export const Right = styled.div`
-  background-color: ${({ theme, clicked }) => !clicked ? theme.palette.ORANGE : 'gray'};
+  background-color: ${
+    ({ theme, clicked }) => !clicked ? theme.palette.ORANGE : theme.palette.GRAY
+  };
   transition: all 0.3s ease;
   padding-top: 8px;
   text-align: center;
   border-radius: 0 4px 4px 0;
-  font-size: 0.8rem;
+  font-size: ${({ theme }) => theme.fontSize.SMALL};
   cursor: pointer;
 `;

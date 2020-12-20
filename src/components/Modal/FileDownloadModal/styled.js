@@ -19,14 +19,14 @@ export const Description = styled.div`
 `;
 
 export const StyeldAnchor = styled.a`
-  background-color: green;
+  background-color: ${({ theme }) => theme.palette.GREEN};
   color: ${({theme}) => theme.palette.WHITE};
   border: none;
   border-radius: 3px;
   outline: none;
   text-align: center;
   text-decoration: none;
-  font-size: 0.6rem;
+  font-size: ${({ theme }) => theme.fontSize.XSMALL};
   padding-top: 13px;
   grid-column: 7/10;
   grid-row: 8/10;
