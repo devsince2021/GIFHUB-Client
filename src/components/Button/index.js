@@ -2,7 +2,6 @@ import { decorateStyledComponent } from '../../utils';
 import {
   StyledSearchIconButton,
   StyledCreateIconButton,
-  StyledModalCloseButton,
   StyledFileUploadIconButton,
   StyledEditFinishButton,
   StyledCancelButton,
@@ -14,10 +13,6 @@ export function SearchIconButton(props) {
 
 export function CreateIconButton(props) {
   return decorateStyledComponent(StyledCreateIconButton, props)
-}
-
-export function ModalCloseButton(props) {
-  return decorateStyledComponent(StyledModalCloseButton, props)
 }
 
 export function FileUploadIconButton(props) {

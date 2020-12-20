@@ -26,12 +26,6 @@ export const StyledCreateIconButton = styled(StyledButton)`
   grid-row: 3;
 `;
 
-export const StyledModalCloseButton = styled(StyledButton)`
-  font-size: ${({ theme }) => theme.fontSize.MEDIUM};
-  transform: rotate(45deg);
-  grid-column: 12/13;
-`;
-
 export const StyledFileUploadIconButton = styled(StyledButton)`
   background-color: ${({ theme }) => theme.palette.WHITE};
   background-image: url(${icon.FILE_SUBMIT_INTPUT});
