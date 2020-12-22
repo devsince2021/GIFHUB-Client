@@ -12,6 +12,10 @@ export const StyledInput = styled.input`
 export const StyledHeaderSearchInput = styled(StyledInput)`
   border-radius: 3px 0 0 3px;
   grid-column: 1/14;
+  ::-webkit-input-placeholder {
+    font-size: ${({ theme }) => theme.fontSize.XSMALL};
+    padding-left: 20px;
+  }
 `;
 
 export const StyledFileSelectInput = styled(StyledInput)`

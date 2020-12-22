@@ -65,7 +65,9 @@ const MainHeader = ({
         }
       <Logo />
       <SearchBar>
-        <HeaderSearchInput />
+        <HeaderSearchInput
+          placeholder='Please enter keywords you want to search!'
+        />
         <SearchIconButton />
       </SearchBar>
     </Header>
