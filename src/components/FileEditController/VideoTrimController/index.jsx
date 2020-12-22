@@ -39,7 +39,7 @@ const VideoTrimController = ({
         Use the sliders to select Start Time and Duration.
       </Description>
       <TimeRangeInputLabel startTime>
-        Strat Time
+        Start Time
       </TimeRangeInputLabel>
       <TimeArrowInput
         name='startTime'
