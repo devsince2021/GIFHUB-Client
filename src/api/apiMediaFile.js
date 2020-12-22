@@ -53,6 +53,6 @@ export const getAllMediaFile = async () => {
     const res = await axios.get(`${SERVER_URL}`);
     return res.data.filter((media) => !media.key);
   } catch (err) {
-    throw new Error('Error in createFinalFile:', err);
+    throw new Error('Error in getAllMediaFile:', err);
   }
 };
