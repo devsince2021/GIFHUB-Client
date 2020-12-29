@@ -5,6 +5,7 @@ import {
   StyledFileUploadIconButton,
   StyledEditFinishButton,
   StyledCancelButton,
+  StyledNextButton,
 } from './styled';
 
 export const SearchIconButton = props => (
@@ -25,4 +26,8 @@ export const EditFinishButton = props => (
 
 export const CancelButton = props => (
   decorateStyledComponent(StyledCancelButton, props)
+);
+
+export const NextButton = props => (
+  decorateStyledComponent(StyledNextButton, props)
 );

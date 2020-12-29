@@ -15,3 +15,10 @@ export const fontSize = {
   SMALL: '0.8rem',
   XSMALL: '0.6rem',
 };
+
+export const position = {
+  next: {
+    row: '11/12',
+    column: '10/12'
+  }
+};

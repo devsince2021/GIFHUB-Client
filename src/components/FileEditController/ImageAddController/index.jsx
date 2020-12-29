@@ -3,10 +3,10 @@ import {
   Description,
   ControllerLabel,
   FileUploaderConatianer,
-  StyledLink,
   Notification,
 } from './styled';
 import FileUploader from '../../FileUploader';
+import { NextButton } from '../../Button';
 
 const ImageAddController = ({
   onSaveSeletedFile,
@@ -55,12 +55,13 @@ const ImageAddController = ({
       <Notification image>
         Supported Formats: JPG, PNG
       </Notification>
-      <StyledLink
-        to='/create/confirm'
+      <NextButton
+        position='next'
+        to='/create/add-image'
         onClick={nextButtonClickHandler}
       >
         next
-      </StyledLink>
+      </NextButton>
     </>
   );
 };

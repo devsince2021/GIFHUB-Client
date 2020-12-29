@@ -3,9 +3,9 @@ import {
   Description,
   TimeRangeInputLabel,
   TimeRangeInputConatianer,
-  StyledLink,
 } from './styled';
 import { TimeArrowInput, TimeRangeInput } from '../../Input';
+import { NextButton } from '../../Button';
 
 const VideoTrimController = ({
   video,
@@ -84,12 +84,13 @@ const VideoTrimController = ({
           column={`${Math.round(video.current?.duration) - startTime}`}
         />
       </TimeRangeInputConatianer>
-      <StyledLink
+      <NextButton
+        position='next'
         to='/create/add-image'
         onClick={nextButtonClickHandler}
       >
         next
-      </StyledLink>
+      </NextButton>
     </>
   );
 };

@@ -1,6 +1,7 @@
-import { palette, fontSize } from '../constants/style';
+import { palette, fontSize, position } from '../constants/style';
 
 export const theme = {
   palette,
   fontSize,
+  position,
 };

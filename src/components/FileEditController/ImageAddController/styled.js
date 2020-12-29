@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 export const Description = styled.div`
   text-align: center;
@@ -20,18 +19,6 @@ export const FileUploaderConatianer = styled.div`
   border-radius: 3px;
   grid-column: 2/9;
   grid-row: ${({ image }) => image ? '5/6' : '9/10'};
-`;
-
-export const StyledLink = styled(Link)`
-  background-color: ${({ theme }) => theme.palette.YELLOW};
-  color: ${({ theme }) => theme.palette.WHITE};
-  text-decoration: none;
-  font-size: ${({ theme }) => theme.fontSize.MEDIUM};
-  text-align: center;
-  padding-top: 3px;
-  border-radius: 3px;
-  grid-column: 10/12;
-  grid-row: 11/12;
 `;
 
 export const Notification = styled.div`

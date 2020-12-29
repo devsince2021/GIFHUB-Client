@@ -19,7 +19,7 @@ module.exports = {
     semi: ['error', 'always'],
     'eol-last': ['error', 'always'],
     'react-hooks/exhaustive-deps': 'off',
-    'no-console': 'error',
+    'no-console': 'warn',
     'no-multiple-empty-lines': ['error', { 'max': 1 }]
   },
 };

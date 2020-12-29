@@ -61,3 +61,10 @@ export const StyledCancelButton = styled(StyledButton)`
   grid-column: ${({ download }) => download ? '7/10' : '4/7'};
   grid-row: 8/10;
 `;
+
+export const StyledNextButton = styled(StyledButton)`
+  background-color: ${({ theme }) => theme.palette.YELLOW};
+  font-size: ${({ theme }) => theme.fontSize.MEDIUM};
+  text-align: center;
+  padding-top: 3px;
+`;
