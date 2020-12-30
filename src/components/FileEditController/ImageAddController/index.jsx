@@ -57,7 +57,7 @@ const ImageAddController = ({
       </Notification>
       <NextButton
         position='next'
-        to='/create/add-image'
+        to='/create/confirm'
         onClick={nextButtonClickHandler}
       >
         next
