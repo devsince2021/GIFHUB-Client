@@ -1,14 +1,19 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const StyledLink = styled(Link)`
-  grid-column: ${({ theme, grid }) => theme.position[grid].column};
-  grid-row: ${({ theme, grid }) => theme.position[grid].row};
+ ${({ grid }) => (
+   grid && css`
+    grid-column: ${({ theme, grid }) => theme.position[grid].column};
+    grid-row: ${({ theme, grid }) => theme.position[grid].row};
+   `
+ )}
   display: grid;
   text-decoration: none;
 `;
 
 const decorateStyledComponent = (Component, props, forwardedRef) => {
+  if (!Component) return;
   const { children, to, position, ...rest } = props;
 
   if (to) {

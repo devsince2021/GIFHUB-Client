@@ -43,6 +43,8 @@
   "devDependencies": {
     "dotenv": "^8.2.0",
     "eslint": "^7.14.0",
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
+    "enzyme": "^3.11.0"
   }
 }
