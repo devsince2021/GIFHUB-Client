@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Description, ControllerLabel } from './styled';
 import { EditFinishButton } from '../../Button';
 import ToggleSlider from '../../ToggleSlider';
@@ -52,3 +53,9 @@ export const FileConfirmController = ({
 };
 
 export default FileConfirmController;
+
+FileConfirmController.propTypes = {
+  uploadedFile: PropTypes.object.isRequired,
+  onSaveFinalFileFormat: PropTypes.func,
+  onClick: PropTypes.func,
+};
