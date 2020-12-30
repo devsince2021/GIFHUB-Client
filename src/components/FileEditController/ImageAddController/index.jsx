@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import {
   Description,
   ControllerLabel,
@@ -67,3 +68,10 @@ const ImageAddController = ({
 };
 
 export default ImageAddController;
+
+ImageAddController.propTypes = {
+  selectedFile: PropTypes.object,
+  onSaveSeletedFile: PropTypes.func,
+  onChangeEdtingStep: PropTypes.func,
+  setIsImageSubmitted: PropTypes.func,
+};
