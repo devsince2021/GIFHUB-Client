@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Description,
   TimeRangeInputLabel,
@@ -96,3 +97,12 @@ const VideoTrimController = ({
 };
 
 export default VideoTrimController;
+
+VideoTrimController.propTypes = {
+  video: PropTypes.object,
+  startTime: PropTypes.number,
+  duration: PropTypes.number,
+  onSaveStartTimeStamp: PropTypes.func,
+  onSaveDurationStamp: PropTypes.func,
+  onChangeEdtingStep: PropTypes.func,
+};
