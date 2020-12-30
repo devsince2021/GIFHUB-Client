@@ -15,7 +15,7 @@ export const FileConfirmController = ({
     }
     return uploadedFile.content_type.split('/')[1].toUpperCase();
   };
-  
+
   const sliderClickHandler = format => {
     onSaveFinalFileFormat(format);
   };
