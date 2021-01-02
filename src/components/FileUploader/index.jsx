@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import PropTypes from 'prop-types';
 import { FileSelectInput } from '../Input';
 import { FileUploadIconButton } from '../Button';
 import { FileUploadForm, FileSelectIcon, SelectedFileName } from './styled';
@@ -47,3 +48,11 @@ return (
 };
 
 export default FileUploader;
+
+FileUploader.propTypes = {
+  video: PropTypes.object,
+  selectedFile: PropTypes.object,
+  placeholder: PropTypes.string,
+  onSubmit: PropTypes.func,
+  onChange: PropTypes.func,
+};
