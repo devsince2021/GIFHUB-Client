@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Route, useHistory } from 'react-router-dom';
 import EditorHeader from '../../components/Header/EditorHeader';
 import { EditorContent, VideoWrapper, ControllerWrapper } from './styled';
-import { SERVER_URL } from '../constants/http';
+import { SERVER_URL } from '../../constants/http';
 import {
   VideoTrimController,
   ImageAddController,
