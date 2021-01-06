@@ -17,7 +17,7 @@ export const uploadMediaFile = async mediaFile => {
     return response.data;
 
   } catch (err) {
-    throw new Error('Error in uploadMediaFile:', err);
+    throw new Error('Error in uploadMediaFile:', err.message);
   }
 };
 
