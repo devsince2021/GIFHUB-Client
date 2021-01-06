@@ -34,7 +34,7 @@ const uploaded = (state = initialState, action) => {
     case SAVE_UPLOADED_FILE_SUCCESS:
       return reducerUtils.success(action.payload);
     case SAVE_UPLOADED_FILE_ERROR:
-      return 'error';
+      return reducerUtils.error(action.payload);
     case DELETE_UPLOADED_FILE:
       return initialState;
     default:
