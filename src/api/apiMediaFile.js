@@ -12,12 +12,13 @@ export const uploadMediaFile = async mediaFile => {
       mediaFile,
       config,
     );
-    
+
     console.log(response);
     return response.data;
 
   } catch (err) {
-    throw new Error('Error in uploadMediaFile:', err.message);
+    console.log(err);
+    throw new Error('Error in uploadMediaFile:', err);
   }
 };
 
