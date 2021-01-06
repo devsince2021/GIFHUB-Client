@@ -12,7 +12,8 @@ export const uploadMediaFile = async mediaFile => {
       mediaFile,
       config,
     );
-
+    
+    console.log(response);
     return response.data;
 
   } catch (err) {
