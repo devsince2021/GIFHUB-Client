@@ -2,7 +2,7 @@ import axios from 'axios';
 import { SERVER_URL } from '../constants/http';
 
 const config = {
-  header: { 'content-type': 'multipart/form-data'}
+  headers: { 'content-type': 'multipart/form-data'}
 };
 
 export const uploadMediaFile = async mediaFile => {
