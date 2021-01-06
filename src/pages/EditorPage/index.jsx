@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Route, useHistory } from 'react-router-dom';
 import EditorHeader from '../../components/Header/EditorHeader';
 import { EditorContent, VideoWrapper, ControllerWrapper } from './styled';
+import { SERVER_URL } from '../constants/http';
 import {
   VideoTrimController,
   ImageAddController,
@@ -106,7 +107,7 @@ const EditorPage = ({
             muted
             autoPlay
           >
-            <source src={`http://localhost:4000/mediaFile/${uploadedFile?._id}`} type='video/mp4' />
+            <source src={`${SERVER_URL}/mediaFile/${uploadedFile?._id}`} type='video/mp4' />
           </video>
         </VideoWrapper>
         <ControllerWrapper>
