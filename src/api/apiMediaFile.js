@@ -38,7 +38,6 @@ export const createFinalFile = async options => {
     console.log(imageFile, 'imagefile');
     const response = await axios.post(
       url,
-      imageFile,
       config,
     );
     console.log(response, 'createFinalFile');
