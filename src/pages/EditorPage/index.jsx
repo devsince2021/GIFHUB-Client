@@ -62,7 +62,6 @@ const EditorPage = ({
   );
 
   const loadEditedMediaFile = () => {
-    console.log('final clicked');
     const imageFile = new FormData();
     imageFile.append('image', selectedFile);
 

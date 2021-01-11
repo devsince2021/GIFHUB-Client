@@ -33,14 +33,15 @@ export const createFinalFile = async options => {
     const { top, left, width, height } = imageSizeAndPosition;
 
     const url = `
-    ${SERVER_URL}/mediaFile/${uploadedFile._id}/finalFile?format=${format}&startTime=${startTime}&duration=${duration}&top=${top}&left=${left}&width=${width}&height=${height}
+      ${SERVER_URL}/mediaFile/${uploadedFile._id}/finalFile?format=${format}&startTime=${startTime}&duration=${duration}&top=${top}&left=${left}&width=${width}&height=${height}
     `;
-    console.log(imageFile, 'imagefile');
+
     const response = await axios.post(
       url,
+      imageFile,
       config,
     );
-    console.log(response, 'createFinalFile');
+
     return response.data;
   } catch (err) {
     throw new Error('Error in createFinalFile:', err);

@@ -9,7 +9,7 @@ const FileDownloadModal = ({
   onClick,
   downloadUrl,
 }) => {
-  console.log(downloadUrl, 'down');
+
   const generateDownloadForm = () => (
     <>
       <Description download>

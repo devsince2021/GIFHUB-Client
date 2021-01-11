@@ -50,7 +50,6 @@ return (
 export default FileUploader;
 
 FileUploader.propTypes = {
-  video: PropTypes.object,
   selectedFile: PropTypes.object,
   placeholder: PropTypes.string,
   onSubmit: PropTypes.func,
