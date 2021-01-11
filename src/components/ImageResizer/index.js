@@ -70,8 +70,8 @@ import { imageSizeAndPositionHandler } from '../../utils';
     setIsMouseUp(true);
 
     onMouseUp({
-      left: `${imageHolder.current.style.left.split('px')[0] - 225}`,
-      top: `${imageHolder.current.style.top.split('px')[0] - 125}`,
+      left: `${imageHolder.current.style.left.split('px')[0] - 250}`,
+      top: `${imageHolder.current.style.top.split('px')[0] - 128}`,
       width: imageHolder.current.style.width.split('px')[0] || '50',
       height: imageHolder.current.style.height.split('px')[0] || '50',
     });
